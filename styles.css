@@ -4,6 +4,7 @@ html, body {
     width: 100%; 
 }
 
+
 body {
     background-image: url(../client/assets/images/backgroundLogin.png);
     background-size: cover; 
