@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1>Marketplace</h1> aqui puede ir el logo -->
+
+        <div id="login-section">
+            <h2>Bienvenido</h2>
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button class="button" onclick="login()">Iniciar sesión</button>
+        </div>
+
+        <div id="user-section" style="display:none;">
+            <h2>Bienvenido, <span id="user-name"></span></h2>
+            <button class="button" onclick="logout()">Cerrar sesión</button>
+
+            <h3>Agregar Producto</h3>
+            <input type="text" id="product-name" placeholder="Nombre del producto">
+            <input type="text" id="product-description" placeholder="Descripción">
+            <input type="number" id="product-price" placeholder="Precio">
+            <button class="button" onclick="addProduct()">Agregar Producto</button>
+
+            <h3>Productos Agregados</h3>
+            <div id="user-products"></div>
+        </div>
+
+        <div id="admin-section" style="display:none;">
+            <h2 id="tituloAdmin">Admin - Productos Pendientes</h2>
+            <button class="button" onclick="logout()">Cerrar sesión</button>
+            <div id="admin-products"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
