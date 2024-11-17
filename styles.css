@@ -1,12 +1,12 @@
 html, body {
     margin: 0; 
-    height: 100%; 
-    width: 100%; 
+    height: auto; 
+    width: auto; 
 }
 
 
-body {
-    background-image: url(../client/assets/images/backgroundLogin.png);
+#BackgroundLogin {
+    background-image: url(../marketplace/assets/images/backgroundLogin.png);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -24,7 +24,7 @@ body {
     flex-direction: column; 
     align-items: center; 
     padding: 1vw 7vw ; 
-    margin: 0 10vw 0 0 ;
+    margin: 0 5vw 0 0 ;
     background-color: rgb(255, 255, 255, 0.8); 
     border-radius: 1vw; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
@@ -49,6 +49,8 @@ h2{
     color: #cb7219;
 }
 
+
+
 #login-section .button {
     margin: 40px 0 10px 0; 
     padding: 10px 2px;
@@ -72,6 +74,97 @@ h2{
     margin-bottom: 10px; 
 }
 
-.card-mp{
-    background-color: purple;
+
+/*diseños para pagina principal*/
+#BackgroundPrincipal{
+    background-image: url(../marketplace/assets/images/Backgroundinicio.png);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    margin: 0;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42vw;
+    display: flex;
+}
+/* estilos nav */
+.navbar-brand{
+    color: brown;
+}
+.btn-outline-success{
+    border: 1px solid #cb7219;
+    color:#cb7219;
+
+}
+.btn-outline-success:hover{
+    background-color: #ff9b37;
+    color: white;
+    border: 1px solid #cb7219;
+}
+.my-container {
+   margin: 0;
+   align-items: center;
+   justify-content: center;
+   display: flex;         
+   flex-wrap: wrap;        
+   gap: 1vw;            
+   justify-content: center; 
+         
+
+}
+
+.card-img-top{
+width: auto;
+height: 286px;
+}
+
+.bodyIndex{
+    overflow: auto;
+    height: auto ;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 8vw; /* Espacio entre las columnas */
+    padding: 2px;
+   background-image: url(./assets/images/backgroundFooter.png);
+   background-size: cover; 
+   height: 20vw;
+   background-repeat: no-repeat; 
+    color: white; /* Color de texto */
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.column {
+    padding: 8vw 0 0 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titlefooterppal {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.ulFooter {
+    list-style: none;
+    padding: 0; 
+}
+
+/* boton de cada card */
+.btn-primary{
+    background-color: #ffb03a;
+    border:1px solid #cb7219;
+    font-weight: bolder;
+}
+.btn-primary:hover{
+    background-color: #e4811f;
+    border:1px solid #e4811f;
 }
