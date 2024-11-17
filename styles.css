@@ -77,7 +77,7 @@ h2{
 
 /*diseños para pagina principal*/
 #BackgroundPrincipal{
-    background-image: url(../marketplace/assets/images/Backgroundinicio.png);
+    background-image: url(./assets/images/Backgroundinicio.png);
     background-size: cover; 
     background-repeat: no-repeat;
     margin: 0;
