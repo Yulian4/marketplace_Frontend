@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Admin</title>
+    <link rel="stylesheet" href="styles/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="barra-navegacion navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Marketplace</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">Iniciar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Botón de Cerrar sesión -->
+        <button class="cerrar-sesion-btn" onclick="logout()">Cerrar sesión</button>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div id="admin-section" class="row justify-content-between">
+            <!-- Columna izquierda para productos pendientes -->
+            <div class="col-md-7">
+                <h2>Productos Pendientes</h2>
+                <div id="admin-products" class="row">
+                    <!-- Producto 1 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/casa.jpg" alt="Casa mascota" class="img-fluid">
+                            <h4>Casa Acogedora</h4>
+                            <p>Diseñada especialmente para la comodidad de tu mascota.</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/casa-azul.jpg" alt="Casa Azul" class="img-fluid">
+                            <h4>Casa Azul</h4>
+                            <p>Con diseño colorido y amueblada para la comodidad de tu mascota</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/casa-gatos.jpg" alt="Casa Gatos" class="img-fluid">
+                            <h4>Casa Modular</h4>
+                            <p>Pensado para la comodidad de tu gato.</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/interactivo-gato.webp" alt="Juguete Interactivo" class="img-fluid">
+                            <h4>Juguete Interactivo</h4>
+                            <p>Juguete para que tu gato se divierta.</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                    <!-- Producto 5 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/masticador-perro.jpg" alt="Masticador" class="img-fluid">
+                            <h4>Masticador</h4>
+                            <p>Un masticador para tu mascota</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                    <!-- Producto 6 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="product-item">
+                            <img src="images01/rascador.jpg" alt="Rascador Gato" class="img-fluid">
+                            <h4>Rascador Gato</h4>
+                            <p>Para que tu gato pueda rascarse y jugar.</p>
+                            <button class="button">Aceptar</button>
+                            <button class="button">Rechazar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Información del administrador -->
+            <div class="col-md-4 text-center">
+                <div id="admin-info">
+                    <div class="user-icon">
+                        <img id="admin-icon" src="images01/admin.png" alt="Admin" class="rounded-circle">
+                    </div>
+
+                    <h3>Bienvenido, Administrador</h3>
+                </div>
+
+                <!-- Botones aceptar o rechazar productos-->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <button class="button">Ver Productos Aceptados</button>
+                        <button class="button">Ver Productos Rechazados</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para regresar a la página principal -->
+    <button class="boton-regresar" onclick="window.location.href='./index.html'">Página Principal</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
