@@ -28,7 +28,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../login.html">Inicio de sesion</a>
+                        <a class="nav-link" href="./templates/iniciarSesion.html">Inicio de sesion</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -36,7 +36,7 @@
                             Dropdown
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./login.html">Inicio de sesion</a></li>
+                            <li><a class="dropdown-item" href="./templates/iniciarSesion.html">Inicio de sesion</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -62,75 +62,9 @@
 </header>
 
 
-<h2>¡Novedades!</h2>
-
-    
-    <div class="container-fluid my-container d-flex">
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodCama.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Cama</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodCamisa.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Camisa para perro</h5>
-                <p class="card-text">Disponible en varias tallas 📏 <br>
-                    Colores vibrantes 🌈
-                    Ideal para perros y gatos 🐶🐱.</p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodGimnasio.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Gimnasio</h5>
-                <p class="card-text">Tamaños grandes para tus gatos, aptos para cualquier espacio pequeño o grande.
-                    </p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodRascador.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Rascador</h5>
-                <p class="card-text">Rascador 8 aprobado por el consentido. Disponible en diferentes diseños</p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div> 
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodVestido.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Vestido</h5>
-                <p class="card-text">Hermosos vestidos para mascotas excelente calidad tallas disponibles xs s m l.</p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div> 
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-            <img src="../assets/images/prodRascador2.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Rascador</h5>
-                <p class="card-text">Ideal para brindarle a tu michi un espacio en casa de juego y alivio del estrés cotidiano 🚨😺</p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-            </div> 
-        </div>
-    </div>
-
+<div id="approved-products" class="container-fluid my-container d-flex flex-wrap justify-content-around">
+    <!-- Los productos aprobados se agregarán dinámicamente aquí -->
+</div>
         <footer>
             <div class="column">
                 <li>Encuentra productos y servicios para tu mascota <br> 
@@ -153,7 +87,8 @@
                 </ul>
             </div>
         </footer>
-
+        <script src="./scripts/index.js"></script>
+        <script src="./scripts/constants.js"></script>
 </body>
 
 </html>

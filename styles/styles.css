@@ -10,7 +10,7 @@ html, body {
 
 
 #BackgroundLogin {
-    background-image: url(../marketplace/assets/images/backgroundLogin.png);
+    background-image: url(../assets/images/backgroundLogin.png);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -135,7 +135,7 @@ footer {
     grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
     gap: 8vw; /* Espacio entre las columnas */
     padding: 2px;
-   background-image: url(./assets/images/backgroundFooter.png);
+   background-image: url(../assets/images/backgroundFooter.png);
    background-size: cover; 
    height: 20vw;
    background-repeat: no-repeat; 
@@ -171,4 +171,32 @@ footer {
 .btn-primary:hover{
     background-color: #e4811f;
     border:1px solid #e4811f;
+}
+.product-card {
+    margin: 10px;
+}
+
+.card {
+    width: 18rem;
+    margin: 10px;
+    border: 1px solid #ddd;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
