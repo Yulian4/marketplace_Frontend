@@ -1,64 +1,96 @@
-const API_URL = 'http://localhost:3000'; 
-console.log("API_URL:", API_URL);
 
+const API_URL = 'http://localhost:3000';
+let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-let currentUser = null;
-let products = [];
+async function register() {
+    const username = document.getElementById('reg-username').value;
+    const password = document.getElementById('reg-password').value;
+
+    if (!username || !password) {
+        alert('Por favor completa todos los campos.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('Usuario registrado con éxito. Ahora puedes iniciar sesión.');
+            showLoginForm();
+        } else {
+            alert(data.message || 'Error al registrar usuario.');
+        }
+    } catch (error) {
+        console.error('Error al registrar usuario:', error);
+        alert('Error al registrar usuario.');
+    }
+}
 
 async function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
+    if (!username || !password) {
+        alert('Por favor completa todos los campos.uuuu');
+        return;
+    }
+
     try {
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
         });
 
         const data = await response.json();
         if (response.ok) {
-            currentUser = data.user;
+            currentUser = { ...data.user, token: data.token };
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            // location.reload(); // Recargar la página para mostrar la vista correcta
-            renderUserSection()
+            renderUserSection();
         } else {
-            alert(data.message);
+            alert(data.message || 'Error al iniciar sesión.');
         }
     } catch (error) {
-        console.error('Error al iniciar sesión', error);
-        alert('Error al iniciar sesión');
+        console.error('Error al iniciar sesión:', error);
+        alert('Error al iniciar sesión.');
     }
 }
 
 async function logout() {
-    try {
-        await fetch(`${API_URL}/auth/logout`, {
-            method: 'POST',
-        });
-        localStorage.removeItem('currentUser');
-        location.reload(); // Recargar la página después de cerrar sesión
-    } catch (error) {
-        console.error('Error al cerrar sesión', error);
-        alert('Error al cerrar sesión');
-    }
+    localStorage.removeItem('currentUser');
+    currentUser = null;
+    showLoginForm();
 }
 
-async function renderUserSection() {
+function showLoginForm() {
+    document.getElementById('login-section').style.display = 'block';
+    document.getElementById('register-section').style.display = 'none';
+    document.getElementById('user-section').style.display = 'none';
+    document.getElementById('admin-section').style.display = 'none';
+}
+
+function showRegisterForm() {
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('register-section').style.display = 'block';
+}
+
+function renderUserSection() {
     const userSection = document.getElementById('user-section');
     const adminSection = document.getElementById('admin-section');
     const loginSection = document.getElementById('login-section');
-    const userName = document.getElementById('user-name');
-    
+
     loginSection.style.display = 'none';
     userSection.style.display = 'none';
     adminSection.style.display = 'none';
-    
+
     if (currentUser) {
-        console.log("currentUser", currentUser);
-        userName.innerText = currentUser.username;
+        document.getElementById('user-name').innerText = currentUser.username;
+        document.getElementById('admin-name').innerText = currentUser.username;
 
         if (currentUser.role === 'user') {
             userSection.style.display = 'block';
@@ -68,51 +100,86 @@ async function renderUserSection() {
             renderAdminProducts();
         }
     } else {
-        loginSection.style.display = 'block';
+        showLoginForm();
     }
 }
+
 async function renderAdminProducts() {
     const adminProductsDiv = document.getElementById('admin-products');
     try {
-        const response = await fetch(`${API_URL}/products/admin-products`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${currentUser.token}`
-            }
+        const response = await fetch(`${API_URL}/api/products/admin-products`, {
+            headers: { 'Authorization': `Bearer ${currentUser.token}` },
         });
 
         const data = await response.json();
-
-        if (data.length > 0) {
-            adminProductsDiv.innerHTML = data.map(p =>
-                `<div class="product">
+        adminProductsDiv.innerHTML = data.length > 0
+            ? data.map(p => `
+                <div class="product">
                     ${p.name} - ${p.price} - Estado: ${p.status === 'approved' ? 'Aprobado' : 'Pendiente'}
-                    <button onclick="approveProduct('${p.name}')">Aprobar</button>
-                </div>`
-            ).join('');
+                    <button onclick="approveProduct('${p.id}')">Aprobar</button>
+                </div>
+            `).join('')
+            : '<p>No hay productos pendientes para aprobar.</p>';
+    } catch (error) {
+        console.error('Error al cargar los productos pendientes:', error);
+    }
+}
+
+async function approveProduct(productId) {
+    try {
+        const response = await fetch(`${API_URL}/api/products/approve-product/${productId}`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${currentUser.token}` },
+        });
+
+        if (response.ok) {
+            alert('Producto aprobado exitosamente.');
+            renderAdminProducts();
         } else {
-            adminProductsDiv.innerHTML = '<p>No hay productos pendientes para aprobar.</p>';
+            const data = await response.json();
+            alert(data.message || 'Error al aprobar producto.');
         }
     } catch (error) {
-        console.error('Error al cargar los productos pendientes', error);
+        console.error('Error al aprobar producto:', error);
+        alert('Error al aprobar producto.');
+    }
+}
+
+async function declineProduct(productId) {
+    try {
+        const response = await fetch(`${API_URL}/api/products/reject-product/${productId}`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${currentUser.token}` },
+        });
+
+        if (response.ok) {
+            alert('Producto Rechazado exitosamente.');
+            renderAdminProducts();
+        } else {
+            const data = await response.json();
+            alert(data.message || 'Error al Rechazar producto.');
+        }
+    } catch (error) {
+        console.error('Error al Rechazar producto:', error);
+        alert('Error al Rechazar producto.');
     }
 }
 
 async function renderUserProducts() {
     const userProductsDiv = document.getElementById('user-products');
     try {
-        const response = await fetch(`${API_URL}/products/${currentUser.username}/products`);
+        const response = await fetch(`${API_URL}/api/products/user-products`, {
+            headers: { 'Authorization': `Bearer ${currentUser.token}` },
+        });
+
         const data = await response.json();
-        
-        if (data.length > 0) {
-            userProductsDiv.innerHTML = data.map(p => 
-                `<div class="product">${p.name} - ${p.price} - Estado: ${p.status === 'approved' ? 'Aprobado' : 'Pendiente'}</div>`
-            ).join('');
-        } else {
-            userProductsDiv.innerHTML = '<p>No has agregado productos.</p>';
-        }
+        userProductsDiv.innerHTML = data.length > 0
+            ? data.map(p => `
+                <div class="product">${p.name} - ${p.price} - ${p.status}</div>
+            `).join('')
+            : '<p>No has agregado productos aún.</p>';
     } catch (error) {
-        console.error('Error al cargar los productos del usuario', error);
+        console.error('Error al cargar los productos del usuario:', error);
     }
 }
 
@@ -121,61 +188,76 @@ async function addProduct() {
     const description = document.getElementById('product-description').value;
     const price = document.getElementById('product-price').value;
 
-    if (name && description && price) {
-        try {
-            const response = await fetch(`${API_URL}/products/add-product`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${currentUser.token}` // Agregar el token para la autorización
-                },
-                body: JSON.stringify({ name, description, price, user: currentUser.username }) // Asegúrate de que se envíen estos campos
-            });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                alert('Producto agregado, espera aprobación del administrador.');
-                renderUserProducts(); // Recargar los productos del usuario
-            } else {
-                alert(data.message || 'else Error al agregar el producto');
-            }
-        } catch (error) {
-            console.error('Error al agregar producto', error);
-            alert('catch Error al agregar producto');
-        }
-    } else {
-        alert('Por favor completa todos los campos');
+    if (!name || !description || !price) {
+        alert('Por favor completa todos los campos.');
+        return;
     }
-}
-// Inicialización
-document.addEventListener('DOMContentLoaded', () => {
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-        currentUser = JSON.parse(storedUser);
-    }
-    renderUserSection();
-});
 
-async function approveProduct(productId) {
     try {
-        const response = await fetch(`${API_URL}/products/approve-product/${productId}`, {
-            method: 'PUT',
+        const response = await fetch(`${API_URL}/api/products/add-product`, {
+            method: 'POST',
             headers: {
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${currentUser.token}`,
-                'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({ name, description, price }),
         });
 
-        const data = await response.json();
         if (response.ok) {
-            alert('Producto aprobado');
-            renderAdminProducts();  // Recarga la lista de productos pendientes
+            alert('Producto agregado. Esperando aprobación del administrador.');
+            renderUserSection();
         } else {
-            alert(data.message);  // Muestra el mensaje de error
+            const data = await response.json();
+            alert(data.message || 'Error al agregar producto.');
         }
     } catch (error) {
-        console.error('Error al aprobar producto', error);
+        console.error('Error al agregar producto:', error);
+        alert('Error al agregar producto.');
     }
 }
 
+async function deleteProduct() {
+    const name = document.getElementById('product-name').value;
+    const description = document.getElementById('product-description').value;
+    const price = document.getElementById('product-price').value;
+
+
+    if (!name || !description || !price) {
+        alert('Por favor completa todos los campos.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/api/products/delete-product`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${currentUser.token}`,
+            },
+            body: JSON.stringify({ name, description, price }),
+        });
+
+        if (response.ok) {
+            alert('Error a eliminar el producto');
+            renderUserSection();
+        } else {
+            const data = await response.json();
+            alert(data.message || 'Error al agregar producto.');
+        }
+    } catch (error) {
+        console.error('Error al agregar producto:', error);
+        alert('Error al agregar producto.');
+    }
+}
+function init() {
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        renderUserSection();
+    } else {
+        showLoginForm();
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', init);

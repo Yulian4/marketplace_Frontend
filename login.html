@@ -5,74 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketplace</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body id="BackgroundLogin">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../marketplace/productos/index.html">Petshop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../marketplace/productos/index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Inicio de sesion</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../login.html">Inicio de sesion</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <div class="container">
-        <!-- <h1>Marketplace</h1> aqui puede ir el logo -->
-
-        <div id="login-section">
-            <h2>Bienvenidos</h2>
-            <input type="text" id="username" placeholder="Usuario">
-            <input type="password" id="password" placeholder="Contraseña">
-            <button class="button" onclick="login()">Iniciar sesión</button>
-        </div>
-
-        <div id="user-section" style="display:none;">
-            <h2>Bienvenido, <span id="user-name"></span></h2>
-            <button class="button" onclick="logout()">Cerrar sesión</button>
-
-            <h3>Agregar Producto</h3>
-            <input type="text" id="product-name" placeholder="Nombre del producto">
-            <input type="text" id="product-description" placeholder="Descripción">
-            <input type="number" id="product-price" placeholder="Precio">
-            <button class="button" onclick="addProduct()">Agregar Producto</button>
-
-            <h3>Productos Agregados</h3>
-            <div id="user-products"></div>
-        </div>
-
-        <div id="admin-section" style="display:none;">
-            <h2 id="tituloAdmin">Admin - Productos Pendientes</h2>
-            <button class="button" onclick="logout()">Cerrar sesión</button>
-            <div id="admin-products"></div>
-        </div>
+<body>
+    <div class="container" id="login-section">
+        <h2>Inicio de Sesión</h2>
+        <input type="text" id="username" placeholder="Usuario" class="form-control my-2" required>
+        <input type="password" id="password" placeholder="Contraseña" class="form-control my-2" required>
+        <button class="btn btn-primary" onclick="login()">Iniciar sesión</button>
+        <p>No tienes cuenta? <a href="javascript:void(0);" onclick="showRegisterForm()">Regístrate</a></p>
     </div>
 
-    <script src="app.js"></script>
+    <div class="container" id="register-section" style="display:none;">
+        <h2>Registro</h2>
+        <input type="text" id="reg-username" placeholder="Usuario" class="form-control my-2" required>
+        <input type="password" id="reg-password" placeholder="Contraseña" class="form-control my-2" required>
+        <button class="btn btn-primary" onclick="register()">Registrarse</button>
+        <p>Ya tienes cuenta? <a href="javascript:void(0);" onclick="showLoginForm()">Inicia sesión</a></p>
+    </div>
+
+    <div class="container" id="user-section" style="display:none;">
+        <h2>Bienvenido, <span id="user-name"></span></h2>
+        <button class="btn btn-secondary" onclick="logout()">Cerrar sesión</button>
+        <h3>Mis Productos</h3>
+        <div id="user-products"></div>
+        <h3>Agregar Producto</h3>
+        <input type="file" id="product-image" placeholder="Foto del Producto">
+        <input type="text" id="product-name" placeholder="Nombre del producto" class="form-control my-2">
+        <input type="text" id="product-description" placeholder="Descripción del producto" class="form-control my-2">
+        <input type="number" id="product-price" placeholder="Precio" class="form-control my-2">
+        <button class="btn btn-primary" onclick="addProduct()">Agregar Producto</button>
+    </div>
+
+    <div class="container" id="admin-section" style="display:none;">
+        <h2>Administrador: <span id="admin-name"></span></h2>
+        <button class="btn btn-secondary" onclick="logout()">Cerrar sesión</button>
+        <h3>Productos Pendientes</h3>
+        <div id="admin-products"></div>
+    </div>
 </body>
 </html>

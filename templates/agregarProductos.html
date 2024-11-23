@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Agregar Productos</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" id="form-addProduct" >
+        <h3>Agregar Producto</h3>
+        <input type="file" id="product-image" placeholder="Foto del Producto">
+        <input type="text" id="product-name" placeholder="Nombre del producto" class="form-control my-2">
+        <input type="text" id="product-description" placeholder="Descripción del producto" class="form-control my-2">
+        <input type="number" id="product-price" placeholder="Precio" class="form-control my-2">
+        <button type="button" class="btn btn-primary" onclick="addProduct()">Agregar Producto</button>
+        <button type="submit" class="btn btn-secondary">agregarProductos2</button>
+        <a href="./usuario.html">Regresar</a>
+    </form>
+    <script src="../scripts/constants.js"></script>
+    <script src="../scripts/agregarProductos.js"></script>
+</body>
+</html>
