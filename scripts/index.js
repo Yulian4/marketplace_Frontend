@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-   
-    
+
+
     const apiUrl = "http://localhost:3000/api/products/approved-products";
 
     
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             productDiv.classList.add("product-card");
             productDiv.innerHTML = `
                 <div class="card" style="width: 18rem;">
-                    <img src="http://localhost:3000/assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
+                    <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">${product.description}</p>
