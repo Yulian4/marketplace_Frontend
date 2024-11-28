@@ -159,45 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = (currentIndex + 1) % totalItems; 
             items[currentIndex].style.display = "block"; 
         }, 3500); 
-    }
+    };
 
-    // Agregar producto al carrito
-    function addProductCart(productId, price, name, description) {
-        console.log("Agregando producto al carrito..."); // Mensaje de depuración
-        let cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        console.log("Carrito actual:", cart); // Ver el carrito antes de agregar el producto
-    
-        const existingProduct = cart.find(item => item.id === Number(productId));
-
-        if (existingProduct) {
-            console.log("Producto ya está en el carrito. Incrementando cantidad.");
-            existingProduct.quantity += 1;
-        } else {
-            cart.push({ id: productId, name, price, description, quantity: 1 });
-            console.log("Producto agregado al carrito:", { id: productId, name, price, description });
-        }
-
-        localStorage.setItem('carrito', JSON.stringify(cart));
-        updateCartCount();
-   
-    }
-    console.log("contenido del localStorage:",localStorage.getItem(`carrito`));
-
-    // Actualizar el contador de productos en el carrito
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
-    
-        console.log("Cantidad total de productos en el carrito:", totalQuantity);  // Para verificar el valor total
-    
-        const contadorCarrito = document.getElementById('contador-carrito');
-        if (contadorCarrito) {
-            contadorCarrito.textContent = totalQuantity;
-        } else {
-            console.error("No se encontró el elemento 'contador-carrito' en el DOM.");
-        }
-    }
-    
 
     fetchApprovedProducts();
     updateCartCount();
