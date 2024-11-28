@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let cart = JSON.parse(localStorage.getItem('carrito')) || [];
         console.log("Carrito actual:", cart); // Ver el carrito antes de agregar el producto
     
-        const existingProduct = cart.find(item => item.id === productId);
+        const existingProduct = cart.find(item => item.id === Number(productId));
 
         if (existingProduct) {
             console.log("Producto ya está en el carrito. Incrementando cantidad.");
@@ -179,7 +179,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem('carrito', JSON.stringify(cart));
         updateCartCount();
+   
     }
+    console.log("contenido del localStorage:",localStorage.getItem(`carrito`));
 
     // Actualizar el contador de productos en el carrito
     function updateCartCount() {

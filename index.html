@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
         <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
@@ -42,13 +43,19 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li>
-                            <!-- Muestra la cantidad de productos en el carrito -->
-                            <div id="contador-carrito">0</div> productos en el carrito
-                        </li>
+                        
                     </ul>
                 </li>
             </ul>
+            <ul>
+            <li> <!-- Muestra la cantidad de productos en el carrito -->
+                <button id="cart-icon" class="btn btn-light position-relative">
+                    <img src="assets/images/cart.png" alt="Carrito" id="cart-icon"  style="width: 30px; height: 30px;">
+                <span id="contador-carrito" >0</span>
+                </button>
+            </li> 
+        </ul>
+         
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -72,6 +79,28 @@
     <div id="approved-products" class="container-fluid my-container d-flex flex-wrap justify-content-around">
        
     </div>
+<!-- Modal de Carrito -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Bienvenido a tu carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <p>No hay productos en el carrito.</p>
+                </div>
+                <div id="total-container"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="checkoutBtn">Formulario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <footer>
         <div class="column">
@@ -95,9 +124,12 @@
             </ul>
         </div>
     </footer>
+  <!-- Bootstrap JS (incluye Popper) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/addCart.js"></script>
 </body>
 
 </html>
