@@ -88,13 +88,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
+               
+
                 <div id="cart-items">
                     <p>No hay productos en el carrito.</p>
                 </div>
                 <div id="total-container"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-danger" onclick="clearCart()">Limpiar carrito</button>
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary" id="checkoutBtn">Formulario</button>
             </div>
         </div>
@@ -130,6 +133,8 @@
 
     <script src="./scripts/index.js"></script>
     <script src="./scripts/addCart.js"></script>
+    </body>
+    
 </body>
 
 </html>
