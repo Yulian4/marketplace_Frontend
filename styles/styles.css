@@ -153,65 +153,128 @@ footer {
     z-index: 10; /* Asegura que el modal esté encima de otros elementos */
 }
 
-/* Cuando el mouse esté sobre el producto, mostrar la descripción */
 .card:hover .modal-content {
-    display: block; /* Mostrar la descripción cuando el producto es hover */
+    display: block; 
 }
 
 
 
 
 
+
+.container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.my-container {
+    padding: 2vw;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2vw;  
+}
+
 #product-slider {
+    position: relative;
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
     overflow: hidden;
     position: relative;
+    width: 80%;
 }
 
 .slider-item {
-    display: none; /* Ocultar todos los productos al principio */
     flex-shrink: 0;
-    width: 30%; /* Mostrar 3 productos por vez */
-    margin: 0 10px;
+    width: 30%;
+    margin: 0 1vw; 
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease;
+    opacity: 0.5;
+    filter: blur(3px);
 }
 
-#product-slider .slider-item:first-child {
-    display: block; 
+.slider-item.active {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: blur(0);
 }
+
+.slider-item.left, .slider-item.right {
+    transform: scale(0.9);
+    opacity: 0.7;
+    filter: blur(1.5px);
+}
+
+.slider-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2vw; 
+    cursor: pointer;
+    padding: 1.5vw;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    border-radius: 50%;
+}
+
+#prev {
+    left: 1vw; 
+}
+
+#next {
+    right: 1vw; 
+}
+
 .card-slider {
-    position: relative;
-    width: 100%;
-    height: 300px; /* Establece un alto fijo para el contenedor de la tarjeta */
-    overflow: hidden; /* Asegura que las imágenes no desborden el contenedor */
+    border: 1px solid #ddd;
+    border-radius: 1vw;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .card-slider img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    object-fit: cover
 }
 
 .card-body-slider {
-    position: absolute;
-    bottom: 0; /* Asegura que el texto esté al fondo del contenedor */
-    width: 100%;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    padding: 2vw; 
     text-align: center;
 }
+
 .card-title-slider {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 2vw; 
+    margin-bottom: 1.5vw; 
 }
 
 .card-text {
-    margin: 5px 0 0 0;
+    font-size: 1.5vw; 
+    color: #333;
 }
+
+.slider-item.active .card-slider {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 
 .navbar {
     position: relative;

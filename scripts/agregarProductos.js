@@ -1,33 +1,39 @@
+const API_URL = 'http://localhost:3000/api/products/add-product';
+
+// Obtén el usuario actual desde el localStorage
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 async function addProduct(event) {
     event.preventDefault();
-    console.log(event);
+
     const name = document.getElementById('product-name').value;
     const description = document.getElementById('product-description').value;
     const price = document.getElementById('product-price').value;
-    console.log(name, description, price);
+    const fileInput = document.getElementById('product-image');
 
-    if (!name || !description || !price) {
+    if (!name || !description || !price || !fileInput.files.length) {
         alert('Por favor completa todos los campos.');
         return;
     }
 
-    const formData = new FormData();
+    console.log("Product Name: ", name);
+    console.log("Product Description: ", description);
+    console.log("Product Price: ", price);
+    console.log("File Selected: ", fileInput.files[0]);
 
-    formData.append("file", event.target[0].files[0]);
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("price", price);
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('user', currentUser.username);
 
     try {
-        const response = await fetch(`${API_URL}/api/products/add-product`, {
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
-                // 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${currentUser.token}`,
+                'Authorization': `Bearer ${currentUser.token}`, 
             },
-            // body: JSON.stringify({ name, description, price }),
             body: formData,
         });
 
@@ -45,7 +51,4 @@ async function addProduct(event) {
 }
 
 const formulario = document.getElementById('form-addProduct');
-
-formulario.addEventListener("submit", (event)=>{
-    addProduct(event);
-});
+formulario.addEventListener('submit', addProduct);

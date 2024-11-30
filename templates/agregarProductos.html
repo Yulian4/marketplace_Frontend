@@ -8,17 +8,32 @@
     <title>Agregar Productos</title>
 </head>
 <body>
-    <form enctype="multipart/form-data" id="form-addProduct" >
+    <form enctype="multipart/form-data" id="form-addProduct">
         <h3>Agregar Producto</h3>
-        <input type="file" id="product-image" placeholder="Foto del Producto">
+    
+        <!-- Campo para la imagen -->
+        <label for="product-image">Foto del Producto</label>
+        <input type="file" id="product-image" placeholder="Foto del Producto" class="form-control my-2">
+    
+        <!-- Campo para el nombre del producto -->
+        <label for="product-name">Nombre del Producto</label>
         <input type="text" id="product-name" placeholder="Nombre del producto" class="form-control my-2">
+    
+        <!-- Campo para la descripción del producto -->
+        <label for="product-description">Descripción del Producto</label>
         <input type="text" id="product-description" placeholder="Descripción del producto" class="form-control my-2">
+    
+        <!-- Campo para el precio -->
+        <label for="product-price">Precio</label>
         <input type="number" id="product-price" placeholder="Precio" class="form-control my-2">
-        <button type="button" class="btn btn-primary" onclick="addProduct()">Agregar Producto</button>
-        <button type="submit" class="btn btn-secondary">agregarProductos2</button>
+    
+        <!-- Botón para enviar el formulario -->
+        <button type="submit" class="btn btn-secondary">Agregar Producto</button>
+    
+        <!-- Enlace para regresar -->
         <a href="./usuario.html">Regresar</a>
     </form>
-    <script src="../scripts/constants.js"></script>
+    
     <script src="../scripts/agregarProductos.js"></script>
 </body>
 </html>

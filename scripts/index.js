@@ -98,16 +98,16 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function renderSlider(products) {
         console.log("Renderizando slider de productos..."); // Mensaje de depuración
-        const sliderContainer = document.getElementById("product-slider");
+        const sliderContainer = document.getElementById("slider-container");
     
         if (!Array.isArray(products) || products.length === 0) {
             sliderContainer.innerHTML = "<p>No hay productos disponibles para el slider.</p>";
             return;
         }
     
-        const randomProducts = getRandomProducts(products, 3);
+        const randomProducts = getRandomProducts(products, 5); // Mostrar 5 productos para tener 1 activo y 2 a cada lado
     
-        randomProducts.forEach(product => {
+        randomProducts.forEach((product, index) => {
             console.log("Producto en slider:", product); // Ver los productos seleccionados para el slider
             if (!product || !product.image || !product.name || !product.price) {
                 console.warn("Producto inválido encontrado y omitido en el slider:", product);
@@ -116,6 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
     
             const productDiv = document.createElement("div");
             productDiv.classList.add("product-card", "slider-item");
+            if (index === 2) {
+                productDiv.classList.add("active");
+            } else if (index === 1 || index === 3) {
+                productDiv.classList.add(index === 1 ? "left" : "right");
+            }
             productDiv.innerHTML = 
                 `<div class="card-slider">
                     <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
@@ -129,6 +134,38 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         startSlider();
+    }
+
+    function startSlider() {
+        console.log("Iniciando el slider de productos..."); // Mensaje de depuración
+        let currentIndex = 2;
+        const items = document.querySelectorAll("#product-slider .slider-item");
+        const totalItems = items.length;
+
+        function updateSliderClasses() {
+            items.forEach((item, index) => {
+                item.classList.remove("active", "left", "right");
+                if (index === currentIndex) {
+                    item.classList.add("active");
+                } else if (index === (currentIndex - 1 + totalItems) % totalItems) {
+                    item.classList.add("left");
+                } else if (index === (currentIndex + 1) % totalItems) {
+                    item.classList.add("right");
+                }
+            });
+        }
+
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateSliderClasses();
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateSliderClasses();
+        });
+
+        updateSliderClasses(); // Inicializa las clases
     }
 
     function getRandomProducts(products, count) {
@@ -147,19 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Productos aleatorios seleccionados:", randomProducts); // Ver los productos aleatorios seleccionados
         return randomProducts;
     }
-
-    function startSlider() {
-        console.log("Iniciando el slider de productos..."); // Mensaje de depuración
-        let currentIndex = 0;
-        const items = document.querySelectorAll("#product-slider .slider-item");
-        const totalItems = items.length;
-
-        setInterval(() => {
-            items[currentIndex].style.display = "none"; 
-            currentIndex = (currentIndex + 1) % totalItems; 
-            items[currentIndex].style.display = "block"; 
-        }, 3500); 
-    };
 
 
     fetchApprovedProducts();
