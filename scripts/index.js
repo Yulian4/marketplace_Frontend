@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // URL actualizada para la ruta correcta de la API
     const apiUrl = "http://localhost:3000/api/products/approved-products";
 
+    // Función para obtener los productos aprobados
     async function fetchApprovedProducts() {
         try {
             console.log("Cargando productos aprobados..."); // Mensaje de depuración
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer <tu-token-aqui>"
+                    "Authorization": "Bearer <tu-token-aqui>"  // Asegúrate de poner el token correcto
                 }
             });
 
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Función para renderizar los productos aprobados
     function renderProducts(products) {
         console.log("Renderizando productos aprobados...");
         const container = document.getElementById("approved-products");
@@ -48,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const productDiv = document.createElement("div");
             productDiv.classList.add("product-card");
             
-            // Aquí estamos añadiendo un contenedor para la descripción
             productDiv.innerHTML = `
                 <div class="card">
                     <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
@@ -59,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             Agregar al carrito
                         </button>
                     </div>
-                    <!-- Modal o div de descripción que se ocultará por defecto -->
                     <div class="modal-content" style="display: none;">
                         <h5>Detalles</h5>
                         <p>${product.description || "Sin descripción disponible"}</p>
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             container.appendChild(productDiv);
     
-            // Agregar eventos hover para mostrar/ocultar la descripción
+            // Eventos hover para mostrar/ocultar la descripción
             const productCard = productDiv.querySelector('.card');
             const modalContent = productDiv.querySelector('.modal-content');
     
@@ -96,8 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     
+    // Función para renderizar el slider de productos
     function renderSlider(products) {
-        console.log("Renderizando slider de productos..."); // Mensaje de depuración
+        console.log("Renderizando slider de productos...");
         const sliderContainer = document.getElementById("slider-container");
     
         if (!Array.isArray(products) || products.length === 0) {
@@ -105,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
     
-        const randomProducts = getRandomProducts(products, 5); // Mostrar 5 productos para tener 1 activo y 2 a cada lado
+        const randomProducts = getRandomProducts(products, 5); // Mostrar 5 productos para el slider
     
         randomProducts.forEach((product, index) => {
-            console.log("Producto en slider:", product); // Ver los productos seleccionados para el slider
+            console.log("Producto en slider:", product);
             if (!product || !product.image || !product.name || !product.price) {
                 console.warn("Producto inválido encontrado y omitido en el slider:", product);
                 return;
@@ -121,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (index === 1 || index === 3) {
                 productDiv.classList.add(index === 1 ? "left" : "right");
             }
-            productDiv.innerHTML = 
-                `<div class="card-slider">
+            productDiv.innerHTML = `
+                <div class="card-slider">
                     <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
                     <div class="card-body-slider">
                         <h5 class="card-title-slider">${product.name}</h5>
@@ -136,8 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
         startSlider();
     }
 
+    // Función para manejar el slider de productos
     function startSlider() {
-        console.log("Iniciando el slider de productos..."); // Mensaje de depuración
+        console.log("Iniciando el slider de productos...");
         let currentIndex = 2;
         const items = document.querySelectorAll("#product-slider .slider-item");
         const totalItems = items.length;
@@ -165,14 +168,12 @@ document.addEventListener("DOMContentLoaded", function () {
             updateSliderClasses();
         });
 
-        updateSliderClasses(); // Inicializa las clases
+        updateSliderClasses();
     }
 
+    // Función para seleccionar productos aleatorios para el slider
     function getRandomProducts(products, count) {
-        console.log("Seleccionando productos aleatorios para el slider..."); // Mensaje de depuración
         const validProducts = products.filter(product => product && product.image && product.name && product.price);
-        console.log("Productos válidos para el slider:", validProducts); // Ver los productos válidos
-
         let randomProducts = [];
         let copiedProducts = [...validProducts];
     
@@ -181,11 +182,35 @@ document.addEventListener("DOMContentLoaded", function () {
             randomProducts.push(copiedProducts.splice(randomIndex, 1)[0]);
         }
     
-        console.log("Productos aleatorios seleccionados:", randomProducts); // Ver los productos aleatorios seleccionados
         return randomProducts;
     }
 
+    // Función para agregar productos al carrito
+    function addProductCart(productId, price, name, description) {
+        let cart = JSON.parse(localStorage.getItem('carrito')) || [];
+        const existingProduct = cart.find(item => item.id === productId);
 
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push({ id: productId, name, price, description, quantity: 1 });
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(cart));
+        updateCartCount();
+    }
+
+    // Función para actualizar el contador de productos en el carrito
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+        const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+        const contadorCarrito = document.getElementById('contador-carrito');
+        if (contadorCarrito) {
+            contadorCarrito.textContent = totalQuantity;
+        }
+    }
+
+    // Llamada inicial para cargar los productos aprobados
     fetchApprovedProducts();
     updateCartCount();
 });
