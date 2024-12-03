@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Entrega</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../../styles/stylesval.css">
+</head>
+<body>
+    <header class="fondoPagos"></header>
+    <div class="barraProgreso">
+        <div class="inactivo">Datos</div>
+        <div class="activo">Entrega</div>
+        <div class="inactivo">Pago</div>
+        <div class="inactivo">Orden Envío</div>
+      </div>
+
+
+    <div class="container">
+        <!-- Formulario de opciones de entrega -->
+        <div class="formularioPagos">
+            <h3 class="detalleEnvio">Opciones de Entrega</h3>
+            <form id="formularioEntrega">
+                <label>
+                    <input type="radio" name="entrega" value="domicilio" data-cost="12000"> Entrega a domicilio (+ $12,000)
+                </label><br>
+                <label>
+                    <input type="radio" name="entrega" value="punto" data-cost="7000"> Recoger en punto de entrega (+ $7,000)
+                </label><br><br>
+                <button class="enviarForm" type="submit">Continuar</button>
+            </form>
+        </div>
+
+          <!-- Resumen del carrito en el lado derecho -->
+          <div class="cart-summary">
+            <h3 class="tituloResumen">Resumen de Compra</h3>
+            <div class="productos" id="cart-summary"></div> <!-- Aquí se listarán los productos -->
+            <div class="totalProductos" id="total-container"></div> <!-- Total calculado -->
+            <button id="modificarCarrito">Modificar carrito</button>
+        </div>
+    </div>
+
+    <script src="../../scripts/domicilio.js"></script>
+    <script src="../../scripts/formulario.js"></script>
+</body>
+</html>

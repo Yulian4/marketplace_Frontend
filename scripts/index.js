@@ -214,3 +214,4 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchApprovedProducts();
     updateCartCount();
 });
+
