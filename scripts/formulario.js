@@ -62,7 +62,7 @@ formulario.addEventListener('submit', function(event) {
   const telefono = document.getElementById('telefono').value;
   const telefonoRegex = /^3\d{9}$/;
   if (!telefonoRegex.test(telefono)) {
-      alert('El número telefónico debe comenzar con "3" y tener 10 dígitos.');
+      swal('Asegúrate que tu numero comience con 3','Intentelo nuevamente','info');
       return;
   }
 

@@ -98,15 +98,15 @@ async function approveProduct(productId) {
         });
 
         if (response.ok) {
-            alert('Producto aprobado exitosamente.');
+            swal('¡Hecho!','Producto aprobado exitosamente.', 'success');
             renderAdminProducts();
         } else {
             const data = await response.json();
-            alert(data.message || 'Error al aprobar producto.');
+            swal(data.message || 'Algo salio mal','Error al aprobar producto.','error');
         }
     } catch (error) {
         console.error('Error al aprobar producto:', error);
-        alert('Error al aprobar producto.');
+        swal('Algo salio mal','Error al aprobar producto.','error');
     }
 }
 
@@ -121,15 +121,15 @@ async function deleteProduct(productId) {
         });
 
         if (response.ok) {
-            alert('Producto eliminado con éxito.');
+            swal('¡Hecho!','Su producto ha sido eliminado correctamente',"success");
             renderUserProducts(); // Vuelve a renderizar los productos del usuario
         } else {
             const data = await response.json();
-            alert(data.message || 'Error al eliminar producto.');
+            swal(data.message || 'Error al eliminar producto.','intentelo nuevamente', 'error');
         }
     } catch (error) {
         console.error('Error al eliminar producto:', error);
-        alert('Error al eliminar producto.');
+        swal('Error al eliminar producto.','intentelo nuevamente', 'error');
     }
 }
 async function declineProduct(productId) {
@@ -143,15 +143,15 @@ async function declineProduct(productId) {
         });
 
         if (response.ok) {
-            alert('Producto rechazado exitosamente.');
+            swal('¡Hecho!','Producto rechazado exitosamente.','success');
             renderAdminProducts();  // Recarga la lista de productos después del rechazo
         } else {
             const data = await response.json();
-            alert(data.message || 'Error al rechazar el producto.');
+            swal(data.message ||'Algo salio mal','Error al rechazar producto.','error');
         }
     } catch (error) {
         console.error('Error al rechazar producto:', error);
-        alert('Error al rechazar producto.');
+        swal('Algo salio mal','Error al rechazar producto.','error');
     }
 }
 

@@ -202,3 +202,8 @@ function renderSlider(products) {
     updateCartCount();
 });
 
+// cambios valentina (redireccion boton para pago)
+const checkoutBtn = document.getElementById("checkoutBtn");
+checkoutBtn.addEventListener("click", () => {
+  window.location.href = "../marketplace/templates/pagos/formulario.html";
+});

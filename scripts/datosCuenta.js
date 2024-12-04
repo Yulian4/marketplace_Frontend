@@ -19,21 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
 
             if (totalCompra <= 0) {
-                alert("El total de la compra no es válido.");
+                swal("El total de la compra no es válido.",'Intentelo de nuevo mas tarde', 'error');
                 return;
             }
 
             
             if (cuentaExists.saldo >= totalCompra) {
-                alert("Su compra ha sido exitosa. A continuación se le mostrara su orden de compra.");
-
+                swal("Su compra ha sido exitosa.",'A continuacion se le mostrará su orden de compra','success')
+                .then(()=>{
+                    window.location.href = './ordenCompra.html';
+                })
              
-                window.location.href = './ordenCompra.html';
+                
             } else {
-                alert("Saldo insuficiente. No se puede realizar la compra.");
+                swal("Saldo insuficiente.",' No se puede realizar la compra.','error');
             }
         } else {
-            alert("Cuenta no encontrada o contraseña incorrecta.");
+            swal("Cuenta no encontrada o contraseña incorrecta.",'Revisa los datos que ingresaste','info');
         }
     });
 });

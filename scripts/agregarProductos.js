@@ -12,7 +12,7 @@ async function addProduct(event) {
     const fileInput = document.getElementById('product-image');
 
     if (!name || !description || !price || !fileInput.files.length) {
-        alert('Por favor completa todos los campos.');
+        swal('Por favor completa todos los campos.','Todos los datos son necesarios','info');
         return;
     }
 
@@ -33,15 +33,17 @@ async function addProduct(event) {
         });
 
         if (response.ok) {
-            alert('Producto agregado. Esperando aprobación del administrador.');
-            window.location.href = './usuario.html';
+            swal('Producto agregado.','Será revisado por el administrador antes de ser publicado', 'success')
+            .then(()=>{
+                window.location.href='./usuario.html'
+            })
         } else {
             const data = await response.json();
-            alert(data.message || 'Error al agregar producto.');
+            swal(data.message || 'Algo salio mal','Error al agregar producto.','error');
         }
     } catch (error) {
         console.error('Error al agregar producto:', error);
-        alert('Error al agregar producto.');
+        swal('Algo salio mal','Error al agregar producto.','error');
     }
 }
 

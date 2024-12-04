@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const selectedOption = document.querySelector('input[name="entrega"]:checked');
         if (!selectedOption) {
-            alert('Por favor, selecciona una opción de entrega.');
+            swal('Selecciona una opción de entrega.','Intentelo de nuevo','info');
             return;
         }
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const totalCompra = localStorage.getItem('totalCompra');
         if (!totalCompra || parseFloat(totalCompra) <= 0) {
-            alert("Error: El total de la compra no es válido.");
+            swal("Algo salio mal",'El total de la compra es invalido','error');
             return;
         }
 

@@ -178,31 +178,32 @@ background-color: rgba(251, 149, 41,0.1);
     justify-content: space-around; 
 }
 
-#pse-button{
-    background-color: transparent; 
+.boton{
+    background-color:white;
     border: 2px solid transparent; 
     border-radius: 10px; 
     padding: 10px;
     cursor: pointer;
     transition: all 0.3s ease; 
     cursor: pointer;
+    margin-right: 1vw;
 }
 
-#pse-button:hover {
+.boton:hover {
     border: 2px solid #fb9529; /* Borde color naranja */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el cursor */
     transform: translateY(-5px); /* Levanta el botón ligeramente */
 }
 
 /* Estilo para las imágenes dentro de los botones */
-#pse-button img {
+.boton img {
     width: 13vw;
     height: 13vw;
     transition: transform 0.3s ease; /* Transición para el tamaño de la imagen */
 }
 
 /* Efecto de zoom a la imagen cuando el cursor está encima */
-#pse-button:hover img {
+.boton:hover img {
     transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
 }
 
@@ -335,4 +336,13 @@ h1 {
     padding: 0 2vw 0 0;
 }
 
-
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
+    border: none;
+    width: 100%;
+    padding: 0.75vw;
+    color: white;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
