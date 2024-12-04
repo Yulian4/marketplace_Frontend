@@ -200,3 +200,4 @@ function renderSlider(products) {
     fetchApprovedProducts();
     updateCartCount();
 });
+

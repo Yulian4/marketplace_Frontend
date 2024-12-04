@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="../../styles/stylesval.css">
+</head>
+<body>
+    
+    <header class="fondoPagos"></header>
+    <div class="barraProgreso">
+        <div class="activo">Datos</div>
+        <div class="inactivo">Entrega</div>
+        <div class="inactivo">Pago</div>
+        <div class="inactivo">Orden Envío</div>
+      </div>
+
+    <div class="containerFormulario">
+        <!-- Formulario del lado izquierdo -->
+        <div class="formularioPagos">
+            <h3 class="detalleEnvio">Detalles del Envío</h3>
+            <form id="formulario">
+                <label for="nombre">Nombre y Apellido:</label><br>
+                <input class="inputForm" type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="telefono">Número Telefónico (Colombia):</label><br>
+                <input class="inputForm"type="tel" id="telefono" name="telefono" required><br><br>
+
+                <label for="municipio">Municipio:</label><br>
+                <select class="inputForm" id="municipio" name="municipio" required>
+                    <option value class="campoDespliegue">Seleccione...</option>
+                    <option value ="Armenia"class="campoDespliegue">Armenia</option>
+                    <option value="Buenavista"class="campoDespliegue">Buenavista</option>
+                    <option value="Calarcá"class="campoDespliegue">Calarcá</option>
+                    <option value="Circasia"class="campoDespliegue">Circasia</option>
+                    <option value="Córdoba"class="campoDespliegue">Córdoba</option>
+                    <option value="Filandia"class="campoDespliegue">Filandia</option>
+                    <option value="Génova"class="campoDespliegue">Génova</option>
+                    <option value="La Tebaida"class="campoDespliegue">La Tebaida</option>
+                    <option value="Montenegro"class="campoDespliegue">Montenegro</option>
+                    <option value="Pijao"class="campoDespliegue">Pijao</option>
+                    <option value="Quimbaya"class="campoDespliegue">Quimbaya</option>
+                    <option value="Salento"class="campoDespliegue">Salento</option>
+                </select><br><br>
+
+                <label for="barrio">Barrio:</label><br>
+                <input class="inputForm"type="text" id="barrio" name="barrio" required><br><br>
+
+                <label for="direccion">Dirección:</label><br>
+                <input class="inputForm" type="text" id="direccion" name="direccion" required><br><br>
+
+                <label for="apt">Piso/Apartamento/Bloque (opcional):</label><br>
+                <input class="inputForm"type="text" id="apt" name="apt"><br><br>
+
+                <label for="referencias">Referencias adicionales (opcional):</label><br>
+                <textarea class="inputForm" id="referencias" name="referencias" placeholder="Descripción de la fachada, puntos de referencia, indicaciones de seguridad"></textarea><br><br>
+
+                <button class="enviarForm" type="submit">Enviar</button>
+            </form>
+            <form class="formTerminos">
+                <label>
+                    <input type="checkbox" name="opciones" value="opcion1"> *Acepto los términos y condiciones
+                </label><br>
+                <label>
+                    <input type="checkbox" name="opciones" value="opcion2"> *Autorizo el tratamiento de mis datos
+                </label><br>
+                <label>
+                    <input type="checkbox" name="opciones" value="opcion3"> Autorizo el tratamiento de mis datos para el envio de publicidad
+                </label><br>
+            </form>
+        </div>
+
+          <!-- Resumen del carrito en el lado derecho -->
+          <div class="cart-summary">
+            <h3 class="tituloResumen">Resumen de Compra</h3>
+            <div class="productos" id="cart-summary"></div> <!-- Aquí se listarán los productos -->
+            <div id="total-container"></div> <!-- Total calculado -->
+            <button id="modificarCarrito">Modificar carrito</button>
+        </div>
+    </div>
+
+    <script src="../../scripts/formulario.js"></script> 
+
+</body>
+</html>

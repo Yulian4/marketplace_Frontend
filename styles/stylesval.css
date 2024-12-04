@@ -1,0 +1,338 @@
+/*barra de progreso :)*/
+.barraProgreso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 60vw;
+    margin: 2vw auto;
+  }
+  
+  .inactivo,
+  .activo {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1vw;
+    padding-bottom: 2vw;
+  }
+  
+  .inactivo {
+    color: rgb(167, 167, 167); 
+  }
+  
+  .activo {
+    color: orange;
+  }
+  
+  /* Líneas de conexión */
+  .inactivo::before,
+  .activo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: rgb(167, 167, 167); 
+    z-index: -1;
+    transform: translateY(-50%);
+    height: 2px;
+  }
+  
+
+  
+  /* Línea activa */
+  .activo::before {
+    background-color: orange;
+  }
+  
+
+  .barraProgreso img {
+    width: 30px;
+    height: auto;
+    display: block;
+  }
+
+
+
+/*estilos formulario.html*/
+*{
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+body{
+    margin-bottom: 10vw;
+}
+.fondoPagos{
+    background-image: url(../assets/images/fondoPagos.png);
+    margin: 0;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20vw;
+}
+
+
+.containerFormulario {
+    display: flex;
+    justify-content:space-around;
+    font-size: 1.1vw;
+}
+
+/*estilos del formularoo*/
+.formularioPagos{
+padding: 20px;
+border-radius: 1vw;
+color: rgb(81, 49, 26);
+width: 40vw;
+border: 2px solid #fb9529;
+}
+
+.detalleEnvio{
+    text-align: center;
+    font-size: 1.35vw;
+    padding-bottom: 2vw;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.inputForm{
+    border: none;
+    border-bottom: 1px solid rgb(140, 78, 31);
+    color: rgb(105, 61, 39);
+    background-color: transparent;
+width: 80%;
+font-size: 1.1vw;
+}
+
+.inputForm:focus {
+    border-bottom: 2px solid rgb(221, 128, 61); 
+    outline: none; 
+  }
+
+.campoDespliegue{
+    background-color: #ffffff;
+}
+
+
+/*estilos del resumen de compra*/
+.cart-summary{
+border: 2px solid #fb9529;
+padding: 20px 20px 0 20px;
+height: min-content;
+padding: 20px;
+border-radius: 1vw;
+color: rgb(81, 49, 26);
+font-style: oblique;
+width: 25vw;
+text-align: center;
+background-color: rgba(251, 149, 41,0.1);
+}
+.tituloResumen{
+    padding-bottom: 3vw;
+    font-weight: bolder;
+}
+.productos{
+    padding-bottom: 3vw;
+}
+
+.product-line {
+    display: flex;
+    justify-content: space-between; 
+    padding: 5px 0;
+}
+
+.product-line span {
+    font-size: 1.1vw;
+}
+
+.enviarForm{
+    border: none;
+    text-align: center;
+    padding: 0.8vw 2vw;
+    background-color: #fb9529 ;
+    margin: 0 auto;
+    color: white;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+.formTerminos{
+    padding: 2vw 0 0 0;
+}
+
+
+/*estrilos domicilio*/
+.container {
+    display: flex;
+    justify-content:space-around;
+    font-size: 1.1vw;
+}
+
+/* Estilo de los botones */
+.metodo-pago {
+    display: flex;
+    justify-content: space-around; 
+}
+
+#pse-button{
+    background-color: transparent; 
+    border: 2px solid transparent; 
+    border-radius: 10px; 
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+
+#pse-button:hover {
+    border: 2px solid #fb9529; /* Borde color naranja */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el cursor */
+    transform: translateY(-5px); /* Levanta el botón ligeramente */
+}
+
+/* Estilo para las imágenes dentro de los botones */
+#pse-button img {
+    width: 13vw;
+    height: 13vw;
+    transition: transform 0.3s ease; /* Transición para el tamaño de la imagen */
+}
+
+/* Efecto de zoom a la imagen cuando el cursor está encima */
+#pse-button:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
+}
+
+.titlemetodopago{
+    text-align: center;
+    padding: 0 0 2vw 0;
+    font-size: 1.35vw;
+}
+
+/*estilos para orden de comora*/
+
+h1 {
+    text-align: center;
+}
+
+.order-summary {
+    background-color: #fff;
+    padding: 3vw;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 20vw;
+    color: #503a2c;
+    font-size: 1.1vw;
+}
+
+.order-summary h2 {
+    margin-bottom: 10px;
+}
+
+.order-summary .item {
+    margin: 12px;
+}
+
+.order-summary .total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.order-summary .payment-info {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.alert {
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#modificarCarrito{
+    text-align: center;
+    padding: 0.8vw 2vw;
+    background-color: #fb9529 ;
+    margin: 0 auto;
+    color: white;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    border: none;
+}
+
+
+/*estilos importanyes*/
+.product-line {
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Línea divisoria */
+  }
+  
+  .product-name {
+    flex: 2; 
+    font-weight: bold;
+  }
+  
+  .product-price {
+    flex: 1; 
+    text-align: right;
+    color: rgb(2, 128, 0);
+  }
+  
+  .product-quantity {
+    flex: 1;
+    text-align: center;
+    color: gray;
+  }
+  
+  .total-line {
+    font-size: 1.2vw; 
+    font-weight: bold; 
+    margin-top: 30px; 
+    text-align: center;
+    color: #503a2c; 
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  
+  /* Estilo para el subtotal */
+.subtotal-line {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+    color: #2c3e50;
+    padding: 0 2vw 0 0;
+}
+
+/* Estilo para el costo de entrega */
+.delivery-line {
+    font-size: 1em;
+    text-align: right;
+    margin-top: 5px;
+    color: #7f8c8d;
+    padding: 0 2vw 0 0;
+}
+
+
