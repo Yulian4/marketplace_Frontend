@@ -1,3 +1,4 @@
+
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 async function register() {
@@ -5,7 +6,7 @@ async function register() {
     const password = document.getElementById('reg-password').value;
 
     if (!username || !password) {
-        alert('Se requieren todos los campos.');
+        swal("Error", "Se requieren todos los campos.", "error");
         return;
     }
 
@@ -18,13 +19,18 @@ async function register() {
         const data = await response.json();
 
         if (response.ok) {
-            alert('Registro de usuario exitoso.');
-            window.location.href = './iniciarSesion.html';
+        
+            swal("¡Registro exitoso! Ahora inicia sesión", "Usuario registrado correctamente.", "success", { button: "Aceptar" })
+            .then((willRedirect) => {
+                if (willRedirect) {
+                    window.location.href = './iniciarSesion.html';
+                }
+            });
         } else {
-            alert(data.message || 'Error al registrar el usuario. Inténtelo de nuevo.');
+            swal("Error", data.message || "Error al registrar el usuario. Inténtelo de nuevo.", "error");
         }
     } catch (error) {
         console.log('Error al registrar el usuario:', error);
-        alert('Error al registrar el usuario.');
+        swal("Error", "Error al registrar el usuario.", "error");
     }
 }

@@ -8,31 +8,54 @@
     <title>Agregar Productos</title>
 </head>
 <body>
-    <form enctype="multipart/form-data" id="form-addProduct">
-        <h3>Agregar Producto</h3>
-    
-        <!-- Campo para la imagen -->
-        <label for="product-image">Foto del Producto</label>
-        <input type="file" id="product-image" placeholder="Foto del Producto" class="form-control my-2">
-    
-        <!-- Campo para el nombre del producto -->
-        <label for="product-name">Nombre del Producto</label>
-        <input type="text" id="product-name" placeholder="Nombre del producto" class="form-control my-2">
-    
-        <!-- Campo para la descripción del producto -->
-        <label for="product-description">Descripción del Producto</label>
-        <input type="text" id="product-description" placeholder="Descripción del producto" class="form-control my-2">
-    
-        <!-- Campo para el precio -->
-        <label for="product-price">Precio</label>
-        <input type="number" id="product-price" placeholder="Precio" class="form-control my-2">
-    
-        <!-- Botón para enviar el formulario -->
-        <button type="submit" class="btn btn-secondary">Agregar Producto</button>
-    
-        <!-- Enlace para regresar -->
-        <a href="./usuario.html">Regresar</a>
-    </form>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Agregar Producto</h3>
+                <form enctype="multipart/form-data" id="form-addProduct">
+                    
+                    <!-- Campo para la imagen -->
+                    <div class="mb-3 text-center">
+                        <label for="product-image" class="form-label"></label>
+                        <div class="image-upload-wrapper">
+                            <label for="product-image" class="image-upload-label">
+                                <img src="../assets/images/1684885584_1769090_500x.jpg" alt="Subir imagen" class="image-upload-icon">
+                                <input type="file" id="product-image" class="form-control d-none">
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Campo para el nombre del producto -->
+                    <div class="mb-3">
+                        <label for="product-name" class="form-label">Nombre del Producto</label>
+                        <input type="text" id="product-name" placeholder="Nombre del producto" class="form-control">
+                    </div>
+                    
+                    <!-- Campo para la descripción del producto -->
+                    <div class="mb-3">
+                        <label for="product-description" class="form-label">Descripción del Producto</label>
+                        <textarea id="product-description" placeholder="Descripción del producto" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <!-- Campo para el precio -->
+                    <div class="mb-3">
+                        <label for="product-price" class="form-label">Precio</label>
+                        <input type="number" id="product-price" placeholder="Precio" class="form-control">
+                    </div>
+                    
+                    <!-- Botón para enviar el formulario -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                    </div>
+                    
+                    <!-- Enlace para regresar -->
+                    <div class="text-center mt-3">
+                        <a href="./usuario.html" class="btn btn-link">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <script src="../scripts/agregarProductos.js"></script>
 </body>

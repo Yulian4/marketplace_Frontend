@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+#register-section, #login-section {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 2vw;
+    border-radius: 1vw;
+    box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    max-width: 40vw; /* Limitar el tamaño máximo del contenedor */
+    min-width: 30vw; /* Tamaño mínimo del contenedor */
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 15vw;
+}
+
+h2 {
+    text-align: center;
+    color: #ff7e5f; /* Título en tono naranja */
+    margin-bottom: 2vw;
+}
+
+input {
+    border: 0.2vw solid #ff7e5f; /* Borde en tono naranja */
+    border-radius: 0.5vw;
+    margin-bottom: 1vw;
+    padding: 0.75vw;
+    width: calc(100% - 1.5vw); /* Ajustar al tamaño del contenedor */
+}
+
+input:focus {
+    border-color: #feb47b; /* Cambio de color al enfocar */
+    box-shadow: 0 0 0.5vw rgba(254, 180, 123, 0.5);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Degradado en el botón */
+    border: none;
+    width: 100%;
+    padding: 0.75vw;
+    color: white;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f); /* Cambio de degradado al pasar el mouse */
+}
+
+p {
+    text-align: center;
+    margin-top: 2vw;
+    white-space: nowrap; /* Evitar que se dividan en varias líneas */
+}
+
+p a {
+    color: #ff7e5f; /* Enlaces en tono naranja */
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+a {
+    display: inline-block; /* Para que los enlaces no se muestren en bloque */
+    color: #ff7e5f; /* Enlaces en tono naranja */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.regresar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+    background-color: #ebdfd7c4;
+    border-radius: 10px;
+}
+.regresar a {
+    color: white;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+/* Estilo para la imagen de fondo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: url('../assets/images/backgroundLogin.png') no-repeat center left;
+    background-size: cover; /* Ajustar la imagen para que cubra el área */
+    z-index: -1;
+    transform: translateX(-5vw); /* Mover la imagen más hacia la izquierda */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.image-upload-wrapper {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.image-upload-label {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.image-upload-label:hover {
+    background-color: #dee2e6;
+}
+
+.image-upload-icon {
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+}
+
+.image-upload-input {
+    display: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.btn-link {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #343a40;
+    text-decoration: underline;
+}

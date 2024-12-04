@@ -1,3 +1,4 @@
+
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 async function login() {
@@ -5,7 +6,7 @@ async function login() {
     const password = document.getElementById('password').value;
 
     if (!username || !password) {
-        alert('Por favor completa todos los campos.uuuu');
+        swal("Error", "Por favor completa todos los campos.", "error");
         return;
     }
 
@@ -17,20 +18,23 @@ async function login() {
         });
 
         const data = await response.json();
-        console.log(data);
         if (response.status === 200) {
             currentUser = { ...data.user, token: data.token };
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            if (currentUser.role === 'user') 
-                window.location.href = './usuario.html';
-            else
-                window.location.href = './administrador.html';
-
+            swal("¡Inicio de sesión exitoso!", "Bienvenido", "success", { button: "Aceptar" })
+            .then((willRedirect) => {
+                if (willRedirect) {
+                    if (currentUser.role === 'user') 
+                        window.location.href = './usuario.html';
+                    else
+                        window.location.href = './administrador.html';
+                }
+            });
         } else {
-            alert(data.message || 'Error al iniciar sesión.');
+            swal("Error", data.message || "Error al iniciar sesión.", "error");
         }
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
-        alert('Error al iniciar sesión.');
+        swal("Error", "Error al iniciar sesión.", "error");
     }
 }

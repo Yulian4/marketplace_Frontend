@@ -16,11 +16,6 @@ async function addProduct(event) {
         return;
     }
 
-    console.log("Product Name: ", name);
-    console.log("Product Description: ", description);
-    console.log("Product Price: ", price);
-    console.log("File Selected: ", fileInput.files[0]);
-
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
     formData.append('name', name);
