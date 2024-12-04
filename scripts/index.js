@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // URL actualizada para la ruta correcta de la API
     const apiUrl = "http://localhost:3000/api/products/approved-products";
 
+
     // Función para obtener los productos aprobados
     async function fetchApprovedProducts() {
         try {
@@ -57,13 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">Precio: $${product.price}</p>
-                        <button class="btn-agregar" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-description="${product.description}">
-                            Agregar al carrito
+                        <a class="link" href="./templates/fichaProducto.html?id=${product.id}&name=${encodeURIComponent(product.name)}&price=${product.price}&image=${product.image}&description=${product.description}">
+                        <button class="btn-mirarMas">Mira más</button>
+                        </a>
+
+                        <button class="btn-agregar" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" >
+                        +
                         </button>
-                    </div>
-                    <div class="modal-content" style="display: none;">
-                        <h5>Detalles</h5>
-                        <p>${product.description || "Sin descripción disponible"}</p>
                     </div>
                 </div>`;
     
@@ -97,46 +98,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     
-    // Función para renderizar el slider de productos
-    function renderSlider(products) {
-        console.log("Renderizando slider de productos...");
-        const sliderContainer = document.getElementById("slider-container");
-    
-        if (!Array.isArray(products) || products.length === 0) {
-            sliderContainer.innerHTML = "<p>No hay productos disponibles para el slider.</p>";
+   // Función para renderizar el slider de productos
+function renderSlider(products) {
+    console.log("Renderizando slider de productos...");
+    const sliderContainer = document.getElementById("slider-container");
+
+    if (!Array.isArray(products) || products.length === 0) {
+        sliderContainer.innerHTML = "<p>No hay productos disponibles para el slider.</p>";
+        return;
+    }
+
+    // Obtener los tres últimos productos
+    const lastThreeProducts = products.slice(-3); 
+    lastThreeProducts.forEach((product, index) => {
+        console.log("Producto en slider:", product);
+        if (!product || !product.image || !product.name || !product.price) {
+            console.warn("Producto inválido encontrado y omitido en el slider:", product);
             return;
         }
-    
-        const randomProducts = getRandomProducts(products, 5); // Mostrar 5 productos para el slider
-    
-        randomProducts.forEach((product, index) => {
-            console.log("Producto en slider:", product);
-            if (!product || !product.image || !product.name || !product.price) {
-                console.warn("Producto inválido encontrado y omitido en el slider:", product);
-                return;
-            }
-    
-            const productDiv = document.createElement("div");
-            productDiv.classList.add("product-card", "slider-item");
-            if (index === 2) {
-                productDiv.classList.add("active");
-            } else if (index === 1 || index === 3) {
-                productDiv.classList.add(index === 1 ? "left" : "right");
-            }
-            productDiv.innerHTML = `
-                <div class="card-slider">
-                    <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
-                    <div class="card-body-slider">
-                        <h5 class="card-title-slider">${product.name}</h5>
-                        <p class="card-text">Precio: $${product.price}</p>
-                    </div>
-                </div>`;
-    
-            sliderContainer.appendChild(productDiv);
-        });
 
-        startSlider();
-    }
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product-card", "slider-item");
+        if (index === 1) {
+            productDiv.classList.add("active");
+        } else if (index === 0 || index === 2) {
+            productDiv.classList.add(index === 0 ? "left" : "right");
+        }
+        productDiv.innerHTML = `
+            <div class="card-slider">
+                <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
+                <div class="card-body-slider">
+                    <h5 class="card-title-slider">${product.name}</h5>
+                    <p class="card-text">Precio: $${product.price}</p>
+                </div>
+            </div>`;
+
+        sliderContainer.appendChild(productDiv);
+    });
+
+    startSlider();
+}
 
     // Función para manejar el slider de productos
     function startSlider() {
@@ -169,20 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         updateSliderClasses();
-    }
-
-    // Función para seleccionar productos aleatorios para el slider
-    function getRandomProducts(products, count) {
-        const validProducts = products.filter(product => product && product.image && product.name && product.price);
-        let randomProducts = [];
-        let copiedProducts = [...validProducts];
-    
-        for (let i = 0; i < count && copiedProducts.length > 0; i++) {
-            const randomIndex = Math.floor(Math.random() * copiedProducts.length);
-            randomProducts.push(copiedProducts.splice(randomIndex, 1)[0]);
-        }
-    
-        return randomProducts;
     }
 
     // Función para agregar productos al carrito

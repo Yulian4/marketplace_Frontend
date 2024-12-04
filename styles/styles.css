@@ -18,42 +18,66 @@ html, body {
 }
 
 /* estilos nav */
+.container-fluid {
+    padding: 0 8vw; 
+}
+
+.nav-link {
+    font-size: 1.1vw; 
+    margin-right: 1vw;
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
 .navbar-brand {
-    color: brown;
+    margin-right: 3vw; 
 }
 
-.btn-outline-success {
-    border: 1px solid #cb7219;
-    color: #cb7219;
+.dropdown-menu {
+    font-size: 1vw; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.btn-outline-success:hover {
-    background-color: #ff9b37;
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ffe4d3; 
+    color: #6c4531; 
+    font-weight: bold;}
+
+/* Eliminar viñetas y márgenes de la lista */
+ul {
+    list-style-type: none;
+}
+
+
+.cart-btn {
+    background-color: #f8f9fa; 
+    border: none; 
+    transition: background-color 0.3s ease; 
+    cursor: pointer; 
+}
+
+
+
+.cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red; 
     color: white;
-    border: 1px solid #cb7219;
-}
-
-.my-container {
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-    display: flex;         
-    flex-wrap: wrap;        
-    gap: 1vw;            
-    justify-content: center; 
-}
-
-.card-img-top {
-    width: auto;
-    height: 286px;
-}
-
-.bodyIndex {
-    overflow: auto;
-    height: auto;
+    font-size: 14px; 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
+
+.d-flex{
+    margin-left: 2vw;
+}
+
+
 
 footer {
     display: grid;
@@ -128,35 +152,52 @@ footer {
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .card-text {
-    font-size: 1rem;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
-/* Asegúrate de que la descripción se oculte por defecto */
-.card .modal-content {
-    display: none; /* Ocultar la descripción por defecto */
-    position: absolute;
-    top: 50%; /* Centrado verticalmente con respecto a la tarjeta */
-    left: 105%; /* Mover a la derecha fuera del contenedor */
-    transform: translateY(-50%); /* Centrar verticalmente */
-    background-color: rgba(0, 0, 0, 0.7);
+.btn-agregar{
+    background-color: #ffb03a; 
     color: white;
-    padding: 10px;
+    padding: 10px 15px;
+    border: none;
     border-radius: 5px;
-    width: 220px; /* Ancho del modal */
-    transition: all 0.3s ease-in-out;
-    z-index: 10; /* Asegura que el modal esté encima de otros elementos */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 900;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
-.card:hover .modal-content {
-    display: block; 
+.btn-agregar:hover{
+    background-color: #db9327;
 }
 
+.btn-mirarMas{
+    background-color: #ffb03a; 
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.btn-mirarMas:hover{
+    background-color: #db9327;
+}
+
+.link{
+    text-decoration: none;
+}
 
 
 /* todos los estilos del slider hacia abajo*/

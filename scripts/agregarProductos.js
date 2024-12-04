@@ -45,5 +45,23 @@ async function addProduct(event) {
     }
 }
 
+
 const formulario = document.getElementById('form-addProduct');
 formulario.addEventListener('submit', addProduct);
+
+
+const fileInput = document.getElementById('product-image');
+const defaultImage = document.querySelector('.image-upload-icon');
+
+
+fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            defaultImage.src = e.target.result;  
+            defaultImage.style.opacity = 1; 
+        };
+        reader.readAsDataURL(file);
+    }
+});
