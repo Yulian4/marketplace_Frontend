@@ -144,10 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
              console.error("No se encontró el elemento 'contador-carrito' en el DOM.");
          }
      }
-    
-     
-    
-     
     // Llamada inicial para actualizar el carrito y el contador
     fetchApprovedProducts();
     updateCartCount();

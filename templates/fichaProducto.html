@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petshop</title>
+    <title>Detalle del Producto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-        <link rel="stylesheet" href="./styles/styles.css">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/fichaProducto.css">
 </head>
+<body>
 
-<body id="bodyIndex">
-
-<!-- barra de navegacion -->
+    <!-- barra de navegacion -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <!-- Logo como imagen en lugar de enlace de texto -->
-        <a class="navbar-brand" href="#">
-            <img src="./assets/images/logo.png" alt="Logo" style="width: 85px; height: auto;">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../assets/images/logo.png" alt="Logo" style="width: 85px; height: auto;">
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,7 +29,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Cambié el primer nav-item por una imagen en lugar de un enlace de texto -->
                 <li class="nav-item">
-                    <a class="nav-link" href="./templates/iniciarSesion.html">Quiero vender</a>
+                    <a class="nav-link" href="./iniciarSesion.html">Quiero vender</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -40,8 +37,8 @@
                         ¿No tienes una cuenta?
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="./templates/iniciarSesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="./templates/resgistrar.html">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="./iniciarSesion.html">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="./resgistrar.html">Registrarse</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -53,7 +50,7 @@
             <ul>
                 <li> 
                     <button id="cart-icon" class="btn btn-light position-relative">
-                        <img src="assets/images/cart.png" alt="Carrito" style="width: 45px; height:auto;">
+                        <img src="../assets/images/cart.png" alt="Carrito" style="width: 45px; height:auto;">
                         <span id="contador-carrito">0</span>
                     </button>
                 </li> 
@@ -68,48 +65,26 @@
     </div>
 </nav>
 
-<!-- Fondo o cabecera de la página principal -->
-<header id="BackgroundPrincipal"></header>
-
-<div id="slider" class="container-fluid my-container">
-    <h2>Novedades</h2>
-    <div id="product-slider" class="d-flex justify-content-center align-items-center">
-        <button id="prev" class="slider-btn">❮</button>
-        <div id="slider-container" class="slider-container">
-            <!-- Aquí se insertarán los productos -->
-        </div>
-        <button id="next" class="slider-btn">❯</button>
-    </div>
-</div>
-
-    <h2>Mas Productos</h2>
-    <div id="approved-products" class="container-fluid my-container d-flex flex-wrap justify-content-around">
-    </div>
-    
-<!-- Modal de Carrito -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cartModalLabel">Bienvenido a tu carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+    <div class="product-container">
+        <!-- Producto principal -->
+        <div class="product-card">
+            <div class="product-img">
+                <img id="product-image" src="" alt="Imagen del producto">
             </div>
-            <div class="modal-body">
+            <div class="product-details">
+                <h1 id="product-name">Nombre del Producto</h1>
+                <p id="product-description">Descripción del producto...</p>
+                <p class="product-price"><span id="product-price">0</span></p>
+                <!-- Botón de agregar al carrito -->
+            <button class="btn-agregar" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-description="${product.description}">Agregar al carrito</button>
 
-                <div id="cart-items">
-                    <p>No hay productos en el carrito.</p>
-                </div>
-                <div id="total-container"></div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-danger" onclick="clearCart()">Limpiar carrito</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="checkoutBtn">Formulario</button>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Otros productos -->
+    <h2 style="text-align: center; margin-top: 40px;">Otros productos que te pueden interesar</h2>
+    <div class="other-products-container" id="other-products-container"></div>
 
     <footer>
         <div class="column">
@@ -133,14 +108,12 @@
             </ul>
         </div>
     </footer>
-  <!-- Bootstrap JS (incluye Popper) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/addCart.js"></script>
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <script src="../scripts/otros.js"></script>
+    <script src="../scripts/addCart.js"></script>
     
 </body>
-
 </html>
