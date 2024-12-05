@@ -30,6 +30,24 @@ function renderProduct(product) {
     </div>
     `;
 }  
+// Obteniendo los parámetros de la URL
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+const productName = params.get('name');
+const productPrice = params.get('price');
+const productDescription = params.get('description');
+
+// Llenando los campos en el HTML
+document.getElementById('product-name').textContent = productName;
+document.getElementById('product-description').textContent = productDescription;
+document.getElementById('product-price').textContent = `$${productPrice}`;
+document.getElementById('product-image').src = `assets/images/products/${params.get('image')}`;
+
+// Botón de agregar al carrito con los parámetros correctos
+document.querySelector('.btn-agregar').setAttribute('onclick', `addProductCart('${productId}', ${productPrice}, '${productName}', '${productDescription}')`);
+
 
 // Llamada inicial a la API
 fetchProducts();
+fetchApprovedProducts();
+    updateCartCount();

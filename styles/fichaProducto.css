@@ -259,3 +259,30 @@ footer {
 .btn-view-product:hover {
     background-color: #db9327; /* Igual que el hover del botón principal */
 }
+
+#contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.span{
+padding: auto;
+}
+
+/* carrito modal */
+.modal-content {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
