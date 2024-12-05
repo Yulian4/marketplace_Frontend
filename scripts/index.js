@@ -197,6 +197,14 @@ function renderSlider(products) {
         }
     }
 
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Evitar el comportamiento predeterminado
+        const query = document.getElementById('searchInput').value.trim();
+        if (query) {
+            window.location.href = `./templates/search.html?query=${encodeURIComponent(query)}`;
+        }
+    });
+
     // Llamada inicial para cargar los productos aprobados
     fetchApprovedProducts();
     updateCartCount();

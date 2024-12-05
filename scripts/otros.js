@@ -79,6 +79,14 @@ function renderOtherProducts(products) {
     });
 }
 
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evitar el comportamiento predeterminado
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+        window.location.href = `./search.html?query=${encodeURIComponent(query)}`;
+    }
+});
+
 // Función para redirigir al detalle del producto
 function viewProduct(productId, name, price, image, description) {
     window.location.href = `../templates/fichaProducto.html?id=${productId}&name=${encodeURIComponent(name)}&price=${price}&image=${image}&description=${encodeURIComponent(description)}`;
