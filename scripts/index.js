@@ -62,9 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="btn-mirarMas">Mira más</button>
                         </a>
 
-                        <button class="btn-agregar" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" >
-                        +
-                        </button>
+                       
                     </div>
                 </div>`;
     

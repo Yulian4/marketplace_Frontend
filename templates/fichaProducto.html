@@ -76,8 +76,51 @@
                 <p id="product-description">Descripción del producto...</p>
                 <p class="product-price"><span id="product-price">0</span></p>
                 <!-- Botón de agregar al carrito -->
-            <button class="btn-agregar" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-description="${product.description}">Agregar al carrito</button>
-
+                <script>
+                    // Obtener los parámetros de la URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    
+                    // Extraer los valores de los parámetros
+                    const productId = urlParams.get('id');
+                    const productName = urlParams.get('name');
+                    const productPrice = parseFloat(urlParams.get('price'));
+                    const productImage = urlParams.get('image');
+                    const productDescription = urlParams.get('description');
+                    
+                    // Verifica que los parámetros están correctamente obtenidos (para depuración)
+                    console.log('Product ID:', productId);
+                    console.log('Product Name:', productName);
+                    console.log('Product Price:', productPrice);
+                    console.log('Product Image:', productImage);
+                    console.log('Product Description:', productDescription);
+                    
+                    // Función para agregar el producto al carrito
+                    function addProductCart() {
+                        // Verificamos que todos los valores estén definidos
+                        if (productId && productName && productPrice && productDescription) {
+                            // Estructura del producto a agregar al carrito
+                            const cartProduct = {
+                                id: productId,
+                                name: productName,
+                                price: productPrice,
+                                image: productImage,
+                                description: productDescription
+                            };
+                    
+                            // Agregar el producto al carrito en el localStorage
+                            let cart = JSON.parse(localStorage.getItem('carrito')) || [];
+                            cart.push(cartProduct);
+                            localStorage.setItem('carrito', JSON.stringify(cart));
+                    
+                            alert('Producto agregado al carrito');
+                            console.log('Producto agregado al carrito:', cartProduct);
+                        } else {
+                            alert('Error: Parámetros del producto no encontrados.');
+                        }
+                    }
+                    </script>
+                    
+                <button class="btn-agregar" onclick="addProductCart()">Agregar al carrito</button>
             </div>
         </div>
     </div>
@@ -85,6 +128,34 @@
     <!-- Otros productos -->
     <h2 style="text-align: center; margin-top: 40px;">Otros productos que te pueden interesar</h2>
     <div class="other-products-container" id="other-products-container"></div>
+
+        
+<!-- Modal de Carrito -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Bienvenido a tu carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+
+                <div id="cart-items">
+                    <p>No hay productos en el carrito.</p>
+                </div>
+                <div id="total-container"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" onclick="clearCart()">Limpiar carrito</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="checkoutBtn">Comprar ahora</button>
+                <div>
+                    
+            </div>
+        </div>
+    </div>
+</div>
 
     <footer>
         <div class="column">
@@ -111,9 +182,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
+   
     <script src="../scripts/otros.js"></script>
     <script src="../scripts/addCart.js"></script>
+    <script src="../scripts/index.js"></script>
+
     
 </body>
 </html>
