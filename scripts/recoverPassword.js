@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('question-section').style.display = 'block';
                 document.getElementById('recover-question').value = data.question;
             } else {
-                swal("Error", data.message || "Usuario o documento incorrectos.", "error");
+                const errorMessage = data.message || "Usuario o documento incorrectos"
+                console.log('Error:', errorMessage);
+                swal.fire("Error", errorMessage, "error");
             }
         } catch (error) {
             console.log('Error al consultar la pregunta secreta:', error);
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                 document.getElementById('new-password-section').style.display = 'block';
             } else {
-                swal("Error", data.message || "Respuesta incorrecta.", "error");
+                swal.fire("Error", data.message || "Respuesta incorrecta.", "error");
             }
         } catch (error) {
             console.log('Error al validar la respuesta:', error);
