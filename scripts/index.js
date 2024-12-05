@@ -195,10 +195,38 @@ function renderSlider(products) {
         }
     }
 
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Evitar el comportamiento predeterminado
+        const query = document.getElementById('searchInput').value.trim();
+        if (query) {
+            window.location.href = `./templates/search.html?query=${encodeURIComponent(query)}`;
+        }
+    });
+
     // Llamada inicial para cargar los productos aprobados
     fetchApprovedProducts();
     updateCartCount();
 });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const scrollArrow = document.getElementById("scrollArrow");
+        const novedadesSection = document.getElementById("slider"); // Sección de Novedades
+
+        // Desplazar al apartado "Novedades" al hacer clic en la flecha
+        scrollArrow.addEventListener("click", () => {
+            novedadesSection.scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Ocultar la flecha cuando se llega a "Novedades"
+        window.addEventListener("scroll", () => {
+            const sectionTop = novedadesSection.getBoundingClientRect().top;
+            if (sectionTop <= window.innerHeight / 2) {
+                scrollArrow.classList.add("hidden");
+            } else {
+                scrollArrow.classList.remove("hidden");
+            }
+        });
+    });   
 
 // cambios valentina (redireccion boton para pago)
 const checkoutBtn = document.getElementById("checkoutBtn");
