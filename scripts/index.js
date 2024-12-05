@@ -210,6 +210,26 @@ function renderSlider(products) {
     updateCartCount();
 });
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const scrollArrow = document.getElementById("scrollArrow");
+        const novedadesSection = document.getElementById("slider"); // Sección de Novedades
+
+        // Desplazar al apartado "Novedades" al hacer clic en la flecha
+        scrollArrow.addEventListener("click", () => {
+            novedadesSection.scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Ocultar la flecha cuando se llega a "Novedades"
+        window.addEventListener("scroll", () => {
+            const sectionTop = novedadesSection.getBoundingClientRect().top;
+            if (sectionTop <= window.innerHeight / 2) {
+                scrollArrow.classList.add("hidden");
+            } else {
+                scrollArrow.classList.remove("hidden");
+            }
+        });
+    });   
+
 // cambios valentina (redireccion boton para pago)
 const checkoutBtn = document.getElementById("checkoutBtn");
 checkoutBtn.addEventListener("click", () => {
