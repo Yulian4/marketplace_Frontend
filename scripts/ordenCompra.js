@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const deliveryCost = parseFloat(localStorage.getItem('deliveryCost')) || 0;
     const nombreUsuario = localStorage.getItem('nombreUsuario') || 'Cliente';
     const direccionUsuario = localStorage.getItem('direccionUsuario') || 'Dirección no especificada';
+    const correoUsuario = localStorage.getItem('correoUsuario') || 'Correo no especificado';
 
     const clientInfo = document.getElementById('client-info');
     clientInfo.innerHTML = `
         <p><strong>Recibe:</strong> ${nombreUsuario}</p>
         <p><strong>Dirección:</strong> ${direccionUsuario}</p>
+        <p><strong>Su orden de compra llegará a:</strong> ${correoUsuario}</p>
     `;
 
     function mostrarOrden(carrito) {
@@ -30,16 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     mostrarOrden(carrito);
-});
 
-// esto son los estilos del alert con una libreria jsjs
-const finalizarPago = document.getElementById("finalizarPago");
-finalizarPago.addEventListener("click", () => {
-    swal("¡Gracias por su compra", "Su pago se ha realizado satisfactoriamente", "success", {button:"Volver a inicio"})
-.then((willRedirect) => {
-    if (willRedirect) {
+    // Actualizar los campos ocultos con los datos antes de enviar el formulario
+    const form = document.getElementById('orderForm');
+    const finalizarPago = document.getElementById('finalizarPago');
+
+    finalizarPago.addEventListener("click", () => {
+        // Actualiza los campos ocultos con los datos
+        document.getElementById('nombreUsuario').value = nombreUsuario;
+        document.getElementById('direccionUsuario').value = direccionUsuario;
+        document.getElementById('correoUsuario').value = correoUsuario;
+        document.getElementById('subtotal').value = subtotalElement;
+        document.getElementById('deliveryCost').value = deliveryCost;
+        document.getElementById('total').value = totalElement;
+
         
-        window.location.href = '../../index.html'; 
-    }
-});
+        swal("¡Gracias por su compra!", "Su pago se ha realizado satisfactoriamente", "success", { button: "Volver a inicio" })
+        .then((willRedirect) => {
+            if (willRedirect) {
+                // Enviar el formulario
+                form.submit();
+            }
+        });
+    });
 });

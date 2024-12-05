@@ -69,10 +69,13 @@ formulario.addEventListener('submit', function(event) {
   const nombre = document.getElementById('nombre').value;
   const municipio = document.getElementById('municipio').value;
   const barrio = document.getElementById('barrio').value;
+  const correo = document.getElementById('correo').value;
 
  
   localStorage.setItem('nombreUsuario', nombre);
   localStorage.setItem('direccionUsuario', `${municipio}, ${barrio}`);
+  localStorage.setItem('correoUsuario', correo);
+
 
  
   window.location.href = './domicilio.html';
