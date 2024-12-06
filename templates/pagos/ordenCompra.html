@@ -20,15 +20,33 @@
     <div class="order-summary">
         <h2>Detalles de la Orden</h2>
         <p class="mensaje">Guarde esta imagen como prueba de su compra para mostrarla al recibir su producto. </p>
-        <div id="client-info"></div>
+        <div id="client-info"></div> <br>
         <div id="order-items"></div>
         <div id="order-summary">
             <div class="item"><strong>Subtotal: </strong><span id="subtotal"></span></div>
             <div class="item"><strong>Costo de entrega: </strong><span id="delivery-cost"></span></div>
             <div class="item"><strong>Total a pagar: </strong><span id="total"></span></div>
         </div>
-        <button class="enviarForm" id="finalizarPago" type="submit">Finalizar pago</button>
+        
+      
+        <form id="orderForm" action="https://formsubmit.co/vale.rodriguez.palacios@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva Orden de Compra">
+            <input type="hidden" name="_next" value="http://127.0.0.1:5502/marketplace/index.html">
+            <input type="hidden" name="_captcha" value="false">
+
+      
+            <input type="hidden" name="nombreUsuario" id="nombreUsuario" value="">
+            <input type="hidden" name="direccionUsuario" id="direccionUsuario" value="">
+            <input type="hidden" name="correoUsuario" id="correoUsuario" value="">
+            <input type="hidden" name="subtotal" id="subtotal" value="">
+            <input type="hidden" name="deliveryCost" id="deliveryCost" value="">
+            <input type="hidden" name="total" id="total" value="">
+
+            <button class="enviarForm" id="finalizarPago" type="submit">Finalizar pago</button>
+        </form>
     </div>
+
     <script src="../../scripts/ordenCompra.js"></script>
 </body>
 </html>
+
