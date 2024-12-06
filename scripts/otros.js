@@ -94,32 +94,5 @@ function viewProduct(productId, name, price, image, description) {
 
 // Llamar a la función para obtener y mostrar los productos
 fetchProducts();
-
-    // Función para agregar productos al carrito
-    function addProductCart(productId, price, name, description) {
-        let cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        const existingProduct = cart.find(item => item.id === productId);
-
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            cart.push({ id: productId, name, price, description, quantity: 1 });
-        }
-
-        localStorage.setItem('carrito', JSON.stringify(cart));
-        updateCartCount();
-    }
-
-    // Función para actualizar el contador de productos en el carrito
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
-        const contadorCarrito = document.getElementById('contador-carrito');
-        if (contadorCarrito) {
-            contadorCarrito.textContent = totalQuantity;
-        }
-    }
-
-    // Llamada inicial para cargar los productos aprobados
-    fetchApprovedProducts();
-    updateCartCount();
+  // Llamada inicial para cargar los productos aprobados
+  fetchApprovedProducts();

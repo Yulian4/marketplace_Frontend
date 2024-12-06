@@ -93,25 +93,21 @@
     <div id="approved-products" class="container-fluid my-container d-flex flex-wrap justify-content-around">
     </div>
     
-<!-- Modal de Carrito -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel">
-    <div class="modal-dialog modal-lg">
+<!-- Modal del Carrito -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cartModalLabel">Bienvenido a tu carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
-                <div id="cart-items">
-                    <p>No hay productos en el carrito.</p>
-                </div>
-                <div id="total-container"></div>
+                <div id="cart-items"></div> <!-- Productos del carrito -->
+                <div id="total-container"></div> <!-- Total del carrito -->
             </div>
             <div class="modal-footer">
-                <button class="btn btn-danger" onclick="clearCart()">Limpiar carrito</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="checkoutBtn">Comprar ahora</button>
+                <button type="button" class="btn btn-primary" onclick="clearCart()">Vaciar Carrito</button>
             </div>
         </div>
     </div>
@@ -145,8 +141,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
   
 
+   
+    <script src="./scripts/logicacarrito.js"></script>
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/addCart.js"></script>
     </body>
     
 </body>

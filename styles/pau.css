@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    color: rgb(81, 49, 26); /* Color letra*/
+    color: rgb(81, 49, 26); /* Color letra */
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -51,9 +51,9 @@ header {
     margin: 0 10px;
 }
 
-/* bienvenida */
+/* Bienvenida */
 h2 {
-    color: rgb(81, 49, 26); 
+    color: rgb(81, 49, 26);
     font-size: 24px;
     text-align: center;
     margin-top: 20px;
@@ -71,8 +71,8 @@ button.btn-secondary {
     text-align: center;
     margin-top: 200px;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 300px;
+    right: 100px;
     z-index: 50;
 }
 
@@ -88,7 +88,7 @@ h3 {
 
 /* Estilo de las tarjetas dentro del carrusel */
 .product-card {
-    border: 2px solid #fb9529; 
+    border: 2px solid #fb9529;
     border-radius: 10px;
     background-color: #fb9529; 
 }
@@ -108,9 +108,23 @@ h3 {
 #carouselExampleAutoplaying {
     background-color: white;
     padding: 20px 0;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* boton formulario */
+/* Botones del carrusel */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #fb9529; /* Color de los íconos */
+}
+
+/* Fondo del contenedor del carrusel */
+.carousel-inner {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Estilo de los botones del formulario */
 button.btn-primary {
     background-color: orange;
     color: white;
@@ -133,120 +147,4 @@ button.btn-primary:hover {
 button.btn-primary:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px orange;
-}
-
-
-/* Sección de administrador */
-#admin-section {
-    background-color: rgba(251, 149, 41, 0.1);
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    width: 100%;
-    max-width: 960px;
-    position: relative;
-    margin-top: 300px;
-}
-
-/* bienvenida admin */
-h2 {
-    color: rgb(81, 49, 26);
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* nombre prod pendientes */
-h3 {
-    color: rgb(81, 49, 26);
-    margin-top: 30px;
-}
-
-/* Estilo para las tarjetas de productos */
-.product-card {
-    border: 2px solid #fb9529; 
-    border-radius: 10px;
-    background-color: #fb9529;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(81, 49, 26, 0.2);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.card-title, .card-text {
-    color: white;
-}
-
-#admin-products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* botones de Aprobar y Rechazar */
-button.btn-danger {
-    background-color: orange;
-    color: white;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 5px 15px;
-    margin-top: 10px;
-}
-
-button.btn-success {
-    background-color: orange;
-    color: white;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 5px 15px;
-    margin-top: 10px;
-}
-
-button.btn-danger:hover,
-button.btn-success:hover {
-    opacity: 0.9;
-}
-
-/* Ajustes para los botones dentro de las tarjetas */
-.card-body .btn {
-    margin-right: 10px;
-}
-
-/* Estilo de la caja de productos */
-.product {
-    background-color: #fff;
-    border: 2px solid #fb9529;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.product button {
-    font-weight: bold;
-}
-
-/* Estilo para cuando no hay productos pendientes */
-#admin-products p {
-    color: rgb(81, 49, 26);
-    font-size: 18px;
-    font-style: italic;
-    margin-top: 20px;
-}
-/* Estilo para las imágenes circulares */
-.user-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; 
-    object-fit: cover; 
-    border: 2px solid #fb9529;
-    margin: 0 10px; 
 }

@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // URL actualizada para la ruta correcta de la API
     const apiUrl = "http://localhost:3000/api/products/approved-products";
 
-
     // Función para obtener los productos aprobados
     async function fetchApprovedProducts() {
         try {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("Error al cargar los productos:", error);
             document.getElementById("approved-products").innerHTML = 
-                `<p style="color: red;">Error al cargar los productos aprobados: ${error.message}</p>`;
+             `<p style="color: red;">Error al cargar los productos aprobados: ${error.message}</p>`;
         }
     }
 
@@ -62,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="btn-mirarMas">Mira más</button>
                         </a>
 
-                       
                     </div>
                 </div>`;
     
@@ -80,62 +78,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalContent.style.display = 'none'; // Ocultar la descripción
             });
         });
-    
-        // Asignar el evento a los botones "Agregar al carrito"
-        const botonesAgregar = document.querySelectorAll('.btn-agregar');
-        botonesAgregar.forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = this.dataset.id;
-                const productName = this.dataset.name;
-                const productPrice = this.dataset.price;
-                const productDescription = this.dataset.description;
-                    
-                console.log("Producto a agregar al carrito:", productId, productName, productPrice, productDescription);
-                addProductCart(productId, productPrice, productName, productDescription);
-            });
-        });
-    }
-    
-   // Función para renderizar el slider de productos
-function renderSlider(products) {
-    console.log("Renderizando slider de productos...");
-    const sliderContainer = document.getElementById("slider-container");
-
-    if (!Array.isArray(products) || products.length === 0) {
-        sliderContainer.innerHTML = "<p>No hay productos disponibles para el slider.</p>";
-        return;
     }
 
-    // Obtener los tres últimos productos
-    const lastThreeProducts = products.slice(-3); 
-    lastThreeProducts.forEach((product, index) => {
-        console.log("Producto en slider:", product);
-        if (!product || !product.image || !product.name || !product.price) {
-            console.warn("Producto inválido encontrado y omitido en el slider:", product);
+    // Función para renderizar el slider de productos
+    function renderSlider(products) {
+        console.log("Renderizando slider de productos...");
+        const sliderContainer = document.getElementById("slider-container");
+
+        if (!Array.isArray(products) || products.length === 0) {
+            sliderContainer.innerHTML = "<p>No hay productos disponibles para el slider.</p>";
             return;
         }
 
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product-card", "slider-item");
-        if (index === 1) {
-            productDiv.classList.add("active");
-        } else if (index === 0 || index === 2) {
-            productDiv.classList.add(index === 0 ? "left" : "right");
-        }
-        productDiv.innerHTML = `
-            <div class="card-slider">
-                <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
-                <div class="card-body-slider">
-                    <h5 class="card-title-slider">${product.name}</h5>
-                    <p class="card-text">Precio: $${product.price}</p>
-                </div>
-            </div>`;
+        // Obtener los tres últimos productos
+        const lastThreeProducts = products.slice(-3); 
+        lastThreeProducts.forEach((product, index) => {
+            console.log("Producto en slider:", product);
+            if (!product || !product.image || !product.name || !product.price) {
+                console.warn("Producto inválido encontrado y omitido en el slider:", product);
+                return;
+            }
 
-        sliderContainer.appendChild(productDiv);
-    });
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product-card", "slider-item");
+            if (index === 1) {
+                productDiv.classList.add("active");
+            } else if (index === 0 || index === 2) {
+                productDiv.classList.add(index === 0 ? "left" : "right");
+            }
+            productDiv.innerHTML = `
+                <div class="card-slider">
+                    <img src="assets/images/products/${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body-slider">
+                        <h5 class="card-title-slider">${product.name}</h5>
+                        <p class="card-text">Precio: $${product.price}</p>
+                    </div>
+                </div>`;
 
-    startSlider();
-}
+            sliderContainer.appendChild(productDiv);
+        });
+
+        startSlider();
+    }
 
     // Función para manejar el slider de productos
     function startSlider() {
@@ -170,31 +154,6 @@ function renderSlider(products) {
         updateSliderClasses();
     }
 
-    // Función para agregar productos al carrito
-    function addProductCart(productId, price, name, description) {
-        let cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        const existingProduct = cart.find(item => item.id === productId);
-
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            cart.push({ id: productId, name, price, description, quantity: 1 });
-        }
-
-        localStorage.setItem('carrito', JSON.stringify(cart));
-        updateCartCount();
-    }
-
-    // Función para actualizar el contador de productos en el carrito
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('carrito')) || [];
-        const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
-        const contadorCarrito = document.getElementById('contador-carrito');
-        if (contadorCarrito) {
-            contadorCarrito.textContent = totalQuantity;
-        }
-    }
-
     document.getElementById('searchForm').addEventListener('submit', function (e) {
         e.preventDefault(); // Evitar el comportamiento predeterminado
         const query = document.getElementById('searchInput').value.trim();
@@ -208,27 +167,27 @@ function renderSlider(products) {
     updateCartCount();
 });
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const scrollArrow = document.getElementById("scrollArrow");
-        const novedadesSection = document.getElementById("slider"); // Sección de Novedades
+document.addEventListener("DOMContentLoaded", () => {
+    const scrollArrow = document.getElementById("scrollArrow");
+    const novedadesSection = document.getElementById("slider"); // Sección de Novedades
 
-        // Desplazar al apartado "Novedades" al hacer clic en la flecha
-        scrollArrow.addEventListener("click", () => {
-            novedadesSection.scrollIntoView({ behavior: "smooth" });
-        });
+    // Desplazar al apartado "Novedades" al hacer clic en la flecha
+    scrollArrow.addEventListener("click", () => {
+        novedadesSection.scrollIntoView({ behavior: "smooth" });
+    });
 
-        // Ocultar la flecha cuando se llega a "Novedades"
-        window.addEventListener("scroll", () => {
-            const sectionTop = novedadesSection.getBoundingClientRect().top;
-            if (sectionTop <= window.innerHeight / 2) {
-                scrollArrow.classList.add("hidden");
-            } else {
-                scrollArrow.classList.remove("hidden");
-            }
-        });
-    });   
+    // Ocultar la flecha cuando se llega a "Novedades"
+    window.addEventListener("scroll", () => {
+        const sectionTop = novedadesSection.getBoundingClientRect().top;
+        if (sectionTop <= window.innerHeight / 2) {
+            scrollArrow.classList.add("hidden");
+        } else {
+            scrollArrow.classList.remove("hidden");
+        }
+    });
+});   
 
-// cambios valentina (redireccion boton para pago)
+// Cambios Valentina (redirección botón para pago)
 const checkoutBtn = document.getElementById("checkoutBtn");
 checkoutBtn.addEventListener("click", () => {
   window.location.href = "../marketplace/templates/pagos/formulario.html";
