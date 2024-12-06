@@ -17,25 +17,22 @@
         <h2>Administrador: <span id="admin-name"></span></h2>
        
         <h3>Productos Pendientes</h3>
-        <div id="admin-products">
-       <!-- Carrusel de productos pendientes -->
-<div id="product-carousel-container" class="container-fluid my-container">
-    <h2>Productos Pendientes</h2>
-    <div id="product-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carousel-products">
-            <!-- Los productos pendientes se cargarán aquí dinámicamente -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
-    </div>
-</div>
+      
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner" id="user-products">
+                <!-- Las tarjetas de productos-->
+            </div>
 
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
 
     <script src="../scripts/constants.js"></script>
     <script src="../scripts/producto.js"></script>

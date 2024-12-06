@@ -61,7 +61,7 @@ h2 {
 
 /* Estilo para los botones */
 button.btn-secondary {
-    background-color: #fb9529;
+    background-color: #ff7e5f;
     color: white;
     border: none;
     font-weight: bold;
@@ -77,7 +77,7 @@ button.btn-secondary {
 }
 
 button.btn-secondary:hover {
-    background-color: #fb9529;
+    background-color: #feb47b;
 }
 
 /* Estilo de los productos del usuario y mensaje de bienvenida */
@@ -86,65 +86,227 @@ h3 {
     margin-top: 30px;
 }
 
+/* Estilo del carrusel */
+#carouselExampleAutoplaying {
+    background-color: #feb47b; 
+    padding: 20px 0;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Container del carrusel */
+.carousel-inner {
+    display: flex;
+    gap: 15px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    transition: transform 0.5s ease;
+    position: relative;
+    width: 100%;  /* O 100vw si quieres que ocupe todo el ancho de la pantalla */
+    height: auto; /* Ajusta según las necesidades de altura */
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+/* Estilo para los botones de control del carrusel (prev y next) */
+.carousel-control-prev, .carousel-control-next {
+    background-color: #ff7e5f; 
+    border-radius: 50%;
+    color: white; 
+    overflow: hidden;
+    width: 50px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    z-index: 10; /* Asegura que el botón esté por encima del contenido */
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: #feb47b; 
+    transform: scale(1.1); 
+}
+
+.carousel-control-prev:active, .carousel-control-next:active {
+    background-color: #ff7e5f; 
+    transform: scale(0.95); 
+}
+
+/* Estilo para el icono dentro de los botones */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1); 
+}
+
 /* Estilo de las tarjetas dentro del carrusel */
 .product-card {
-    border: 2px solid #fb9529;
+    border: 2px solid white; 
     border-radius: 10px;
-    background-color: #fb9529; 
+    background-color: white; 
+    margin-right: 0%; /* Espacio entre las tarjetas */
+    width: 250px;
+    height: 400px;
+    flex-shrink: 0;
+    align-items: center;
 }
 
+/* Estilo para la imagen de las tarjetas */
 .product-card img {
     width: 100%;
-    height: 200px;
+    height: 400px;
     object-fit: cover;
     border-radius: 10px;
+    border: 5px solid #feb47b;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto hover en la imagen del producto */
+.product-card img:hover {
+    transform: scale(1.05); /* Efecto de zoom */
+    box-shadow: 0 4px 10px orange; /* Sombra al hacer hover */
+}
+
+/* Estilo para el texto dentro de las tarjetas */
 .card-title, .card-text {
+    color: rgb(81, 49, 26); 
+}
+
+/* Botones de estado (Pendiente, Aprobado, Rechazado) */
+.btn-warning, .btn-success, .btn-danger {
+    background-color: #ff7e5f; 
     color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 8%;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* transición suave */
 }
 
-/* Estilo para el carrusel */
-#carouselExampleAutoplaying {
-    background-color: white;
-    padding: 20px 0;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+button.btn-warning:hover, button.btn-success:hover, button.btn-danger:hover {
+    background-color: #ff9a8b;
+    transform: translateY(-2px);
 }
 
-/* Botones del carrusel */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: #fb9529; /* Color de los íconos */
+button.btn-warning:active,
+button.btn-success:active,
+button.btn-danger:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px orange;
 }
 
-/* Fondo del contenedor del carrusel */
-.carousel-inner {
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    overflow: hidden;
+button.btn-warning {
+    background-color: #ffae42; 
 }
 
-/* Estilo de los botones del formulario */
+button.btn-success {
+    background-color: #ffae42; 
+}
+
+button.btn-danger {
+    background-color: #ffae42; 
+}
+
+@media screen and (max-width: 768px) {
+    /* Para pantallas más pequeñas */
+    .user-info {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .user-info .user-image {
+        margin: 5px;
+    }
+
+    button.btn-secondary {
+        width: auto;
+        font-size: 12px;
+        padding: 10px 15px;
+        position: relative;
+        margin-top: 20px;
+    }
+
+    #user-section {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .carousel-inner {
+        flex-direction: column; 
+    }
+
+    .carousel-item {
+        width: 100%;
+    }
+}
+/* Estilo de los botones dentro del formulario */
 button.btn-primary {
-    background-color: orange;
+    background-color: #ff7e5f;
     color: white;
     border: none;
     font-weight: bold;
     border-radius: 30px;
     padding: 10px 20px;
     margin-top: 20px;
-    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
-    box-shadow: 0 4px 8px rgb(81, 49, 26); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s; 
+    box-shadow: 0 4px 8px rgba(81, 49, 26, 0.2); 
 }
 
 /* Efecto al pasar el mouse */
 button.btn-primary:hover {
-    background-color: orange;
+    background-color: #feb47b;
     transform: translateY(-2px);
 }
 
 /* Efecto al hacer clic */
 button.btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px orange;
+    box-shadow: 0 2px 4px rgba(255, 126, 95, 0.6);
+}
+/* Estilo para los botones del slider */
+.slider-btn {
+    background-color: #fb9529; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#prev {
+    left: 20px; /* Ubicación a la izquierda */
+}
+
+#next {
+    right: 20px; /* Ubicación a la derecha */
+}
+
+/* Efecto hover para los botones del slider */
+.slider-btn:hover {
+    background-color: #ff9a8b; /* Cambio de color al pasar el ratón */
+    transform: scale(1.1); /* Aumentar tamaño del botón */
+}
+
+/* Efecto de clic para los botones del slider */
+.slider-btn:active {
+    transform: scale(1); /* Vuelve al tamaño original cuando se hace clic */
 }
