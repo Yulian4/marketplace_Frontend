@@ -61,12 +61,14 @@ function renderUserSection() {
         showLoginForm();
     }
 }
+document.addEventListener("DOMContentLoaded", renderUserSection);
 
 async function logout() {
     localStorage.removeItem('currentUser');
     currentUser = null;
     window.location.href = './iniciarSesion.html';
 }
+
 
 async function renderAdminProducts() {
     const adminProductsDiv = document.getElementById('admin-products');
