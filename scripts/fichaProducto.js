@@ -18,7 +18,7 @@ function renderProduct(product) {
     container.innerHTML = `
     <div class="product-page">
         <div class="product-image">
-        <img src="assets/images/products/${product.image}" alt="${product.name}">
+        <img src="../assets/images/products/${product.image}" alt="${product.name}">
         </div>
         <div class="product-details">
         <h1>${product.name}</h1>
@@ -41,11 +41,16 @@ const productDescription = params.get('description');
 document.getElementById('product-name').textContent = productName;
 document.getElementById('product-description').textContent = productDescription;
 document.getElementById('product-price').textContent = `$${productPrice}`;
-document.getElementById('product-image').src = `assets/images/products/${params.get('image')}`;
+document.getElementById('product-image').src = `../assets/images/products/${params.get('image')}`;
 
 // Botón de agregar al carrito con los parámetros correctos
 document.querySelector('.btn-agregar').setAttribute('onclick', `addProductCart('${productId}', ${productPrice}, '${productName}', '${productDescription}')`);
 
+// Cambios Valentina (redirección botón para pago)
+const checkoutBtn = document.getElementById("checkoutBtn");
+checkoutBtn.addEventListener("click", () => {
+  window.location.href = "../templates/pagos/formulario.html";
+});
 
 // Llamada inicial a la API
 fetchProducts();

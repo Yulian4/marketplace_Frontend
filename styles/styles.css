@@ -279,7 +279,7 @@ h2 {
     transition: transform 0.5s ease;
     overflow: hidden;
     position: relative;
-    width: 80%;
+    width: 90%;
 }
 
 .slider-item {
@@ -311,14 +311,16 @@ h2 {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
+    background: linear-gradient(45deg, #ff8800, #fdd8a1);
     font-size: 2vw; 
     cursor: pointer;
-    padding: 1.5vw;
     position: absolute;
     top: 50%;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     transform: translateY(-50%);
     z-index: 1000;
-    border-radius: 50%;
 }
 
 #prev {
