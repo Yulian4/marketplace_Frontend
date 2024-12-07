@@ -10,17 +10,19 @@
 </head>
 <body>
     <header></header>
+
+    <!-- Botón de cerrar sesión -->
     <button class="btn btn-secondary" onclick="logout()">Cerrar sesión</button>
-    <div class="container" id="admin-section" >
-        <img src="../assets/images/products/adminm.jpg" alt="Producto 1" class="user-image">
-        <img src="../assets/images/products/adminw.png" alt="Producto 2" class="user-image">
+
+    <div class="container" id="admin-section">
+        <img src="../assets/images/incognito.jpg" alt="Administrador" class="user-image">
         <h2>Administrador: <span id="admin-name"></span></h2>
-       
         <h3>Productos Pendientes</h3>
       
+        <!-- Carrusel de productos pendientes -->
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner" id="user-products">
-                <!-- Las tarjetas de productos-->
+            <div class="carousel-inner" id="carousel-inner">
+                <!-- Aquí se cargarán las tarjetas de productos-->
             </div>
 
             <!-- Controles del carrusel -->
@@ -33,8 +35,13 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+    </div>
 
+    <!-- Scripts -->
     <script src="../scripts/constants.js"></script>
-    <script src="../scripts/producto.js"></script>
+    <samp src="../scripts/carrusel.js"><script></script>
+    <script src="../scripts/producto.js"></script> 
+    <script src="../scripts/agregarProductos.js"></script> 
+   
 </body>
 </html>
