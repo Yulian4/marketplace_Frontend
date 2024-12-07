@@ -1,14 +1,14 @@
 /* Estilos para el Modal del Carrito */
 .modal-content {
     border-radius: 1vw;
-    background: linear-gradient(to bottom right, #ff7e5f, #feb47b); /* Gradiente para el fondo del modal */
+    background:white; /* Gradiente para el fondo del modal */
     color: rgb(81, 49, 26); /* Color de texto principal */
 }
 
 .modal-header {
-    background-color: #fff5e1; /* Fondo claro para el encabezado */
-    color: rgb(81, 49, 26); /* Color oscuro para el texto del encabezado */
-    border-bottom: 2px solid #feb47b; /* Borde inferior de color más claro */
+    background-color:#feb47b; ; /* Fondo claro para el encabezado */
+    color: rgb(81, 49, 26); 
+    border-bottom: 2px solid #feb47b; 
     font-size: 1.2vw;
     padding: 15px 20px;
 }
@@ -24,8 +24,8 @@
 }
 
 .modal-footer {
-    background-color: #fff5e1; /* Fondo claro para el pie de página */
-    border-top: 2px solid #feb47b; /* Borde superior de color más claro */
+    background-color: #feb47b; /* Fondo footer*/
+    border-top: 2px solid #feb47b; 
 }
 
 .modal-footer button {
@@ -36,28 +36,68 @@
 
 /* Estilo para los botones del modal */
 .btn-secondary {
-    background-color:linear-gradient(to right, #ff7e5f, #feb47b) ;
-    color: white;
+    background-color:white ;
+    color: #ff7e5f;
     border: none;
+    text-decoration:underline;
     transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px orange;
 }
 
 .btn-secondary:hover {
-    background-color: #ff7e5f; /* Gris más oscuro */
+    background-color: #ff7e5f; 
+    color: #503a2c;
 }
-
+.btn-try{
+    background-color:white;
+    color: #ff7e5f;
+    border:none ;
+    text-decoration:underline;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px orange;
+}
+.btn-try:hover {
+    background-color: #ff7e5f; 
+    color: #503a2c;
+}
+.btn-danger{
+    background-color:#ff7e5f;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px #feb47b;
+}
+.btn-danger:hover {
+    background-color: #feb47b;
+    color: black;
+}
+.btn-warning{
+    background-color:#ff7e5f;
+    color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px #feb47b;
+}
+.btn-warning:hover {
+    background-color: #feb47b;
+    color: black;
+} 
 .btn-primary {
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradiente para los botones */
+    background:linear-gradient(to right, #ff7e5f, #feb47b);
     color: white;
     border: none;
     transition: background-color 0.3s ease;
     padding: 0.8vw 2vw;
     border-radius: 1vw;
     font-size: 1vw;
+    box-shadow: 0px 4px 6px white;
+    text-decoration: underline;
 }
+    
+
 
 .btn-primary:hover {
-    background: linear-gradient(to right, #feb47b, #ff7e5f); /* Gradiente invertido en hover */
+    background:orange;
+    color: #503a2c;
 }
 
 #cart-items {
@@ -125,15 +165,15 @@
 }
 
 .clear-cart-btn {
-    background-color: #ff4c4c;
+    background-color: orange;
     border: none;
     padding: 0.8vw 2vw;
-    color: white;
+    color: #503a2c;
     font-size: 1vw;
     border-radius: 1vw;
     cursor: pointer;
 }
 
 .clear-cart-btn:hover {
-    background-color: #e03e3e; 
+    background-color: orange; 
 }
