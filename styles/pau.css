@@ -1,312 +1,239 @@
 body {
     background-color: white;
-    color: rgb(81, 49, 26); /* Color letra */
+    color: rgb(81, 49, 26);
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
     margin: 0;
     padding: 0;
+    flex-direction: column;  
 }
 
-/* Fondo de pantalla */
+/* Fondo de la página */
 header {
     background-image: url(../assets/images/fondoPagos.png);
     background-size: cover;
     background-position: center;
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    height: 100vh; 
     margin: 0;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* Sección de usuario */
+/* Sección del usuario o administrador */
 #user-section {
     background-color: rgba(251, 149, 41, 0.1);
-    border-radius: 15px;
-    padding: 30px;
+    border-radius: 1.5vw;
+    padding: 3vw;
     text-align: center;
     width: 100%;
-    max-width: 960px;
+    max-width: 90vw; 
+    margin-top: 30vh;        
     position: relative;
-    margin-top: 300px;
-}
-
-/* Usuario */
-.user-info {
     display: flex;
-    justify-content: center; 
-    margin-bottom: 20px;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;   
 }
 
-.user-info .user-image {
-    width: 150px;
-    height: 150px;
+/* Imagen del administrador */
+.user-image {
+    width: 15vw; 
+    height: 15vw; 
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #fb9529;
-    margin: 0 10px;
+    border: 0.3vw solid #fb9529; 
+    margin: 0 2vw;
 }
 
-/* Bienvenida */
-h2 {
-    color: rgb(81, 49, 26);
-    font-size: 24px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Estilo para los botones */
+/* Ubicación del botón de formulario en la parte superior del user-section */
 button.btn-secondary {
     background-color: #ff7e5f;
     color: white;
     border: none;
     font-weight: bold;
-    border-radius: 500px;
-    padding: 10px 20px;
-    width: 9%;
+    border-radius: 2vw; 
+    padding: 1vw 2vw;
+    width: 12%; 
     text-align: center;
-    margin-top: 200px;
+    margin-top: 10vh; 
     position: absolute;
-    top: 300px;
-    right: 100px;
-    z-index: 50;
+    top: 10vh; 
+    right: 0vw; 
+    z-index: 30;
 }
 
 button.btn-secondary:hover {
     background-color: #feb47b;
 }
 
-/* Estilo de los productos del usuario y mensaje de bienvenida */
-h3 {
-    color: rgb(81, 49, 26);
-    margin-top: 30px;
-}
-
-/* Estilo del carrusel */
-#carouselExampleAutoplaying {
-    background-color: #feb47b; 
-    padding: 20px 0;
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-/* Container del carrusel */
-.carousel-inner {
-    display: flex;
-    gap: 15px; /* Espacio entre las tarjetas */
-    justify-content: center;
-    transition: transform 0.5s ease;
-    position: relative;
-    width: 100%;  /* O 100vw si quieres que ocupe todo el ancho de la pantalla */
-    height: auto; /* Ajusta según las necesidades de altura */
-}
-
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.carousel-item {
-    position: relative;
-    width: 100%;
-    flex: 0 0 auto;
-}
-
-/* Estilo para los botones de control del carrusel (prev y next) */
-.carousel-control-prev, .carousel-control-next {
-    background-color: #ff7e5f; 
-    border-radius: 50%;
-    color: white; 
-    overflow: hidden;
-    width: 50px; 
-    height: 50px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    z-index: 10; /* Asegura que el botón esté por encima del contenido */
-}
-
-.carousel-control-prev:hover, .carousel-control-next:hover {
-    background-color: #feb47b; 
-    transform: scale(1.1); 
-}
-
-.carousel-control-prev:active, .carousel-control-next:active {
-    background-color: #ff7e5f; 
-    transform: scale(0.95); 
-}
-
-/* Estilo para el icono dentro de los botones */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    filter: invert(1); 
-}
-
-/* Estilo de las tarjetas dentro del carrusel */
-.product-card {
-    border: 2px solid white; 
-    border-radius: 10px;
-    background-color: white; 
-    margin-right: 0%; /* Espacio entre las tarjetas */
-    width: 250px;
-    height: 400px;
-    flex-shrink: 0;
-    align-items: center;
-}
-
-/* Estilo para la imagen de las tarjetas */
-.product-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 5px solid #feb47b;
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto hover en la imagen del producto */
-.product-card img:hover {
-    transform: scale(1.05); /* Efecto de zoom */
-    box-shadow: 0 4px 10px orange; /* Sombra al hacer hover */
-}
-
-/* Estilo para el texto dentro de las tarjetas */
-.card-title, .card-text {
-    color: rgb(81, 49, 26); 
-}
-
-/* Botones de estado (Pendiente, Aprobado, Rechazado) */
-.btn-warning, .btn-success, .btn-danger {
-    background-color: #ff7e5f; 
-    color: white;
-    border: none;
-    font-weight: bold;
-    border-radius: 30px;
-    padding: 5px 20px;
-    width: 8%;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* transición suave */
-}
-
-button.btn-warning:hover, button.btn-success:hover, button.btn-danger:hover {
-    background-color: #ff9a8b;
-    transform: translateY(-2px);
-}
-
-button.btn-warning:active,
-button.btn-success:active,
-button.btn-danger:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px orange;
-}
-
-button.btn-warning {
-    background-color: #ffae42; 
-}
-
-button.btn-success {
-    background-color: #ffae42; 
-}
-
-button.btn-danger {
-    background-color: #ffae42; 
-}
-
-@media screen and (max-width: 768px) {
-    /* Para pantallas más pequeñas */
-    .user-info {
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    .user-info .user-image {
-        margin: 5px;
-    }
-
-    button.btn-secondary {
-        width: auto;
-        font-size: 12px;
-        padding: 10px 15px;
-        position: relative;
-        margin-top: 20px;
-    }
-
-    #user-section {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .carousel-inner {
-        flex-direction: column; 
-    }
-
-    .carousel-item {
-        width: 100%;
-    }
-}
-/* Estilo de los botones dentro del formulario */
+/* Ubicación del botón de agregar producto en la parte superior del user-section */
 button.btn-primary {
     background-color: #ff7e5f;
     color: white;
     border: none;
     font-weight: bold;
-    border-radius: 30px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    transition: background-color 0.3s, transform 0.3s; 
-    box-shadow: 0 4px 8px rgba(81, 49, 26, 0.2); 
+    border-radius: 2vw; 
+    padding: 1vw 2vw;
+    width: 15%; 
+    text-align: center;
+    margin-top: 10vh; 
+    position: absolute;
+    top: 10vh; 
+    left: 40vw; 
+    z-index: 30; 
 }
 
-/* Efecto al pasar el mouse */
 button.btn-primary:hover {
     background-color: #feb47b;
+}
+
+/* Carrusel */
+/* Estilo para el carrusel dentro de #user-section */
+#carouselExampleAutoplaying {
+    background-color: #feb47b;
+    padding: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;        /* Asegura que el carrusel no ocupe el 100% del ancho */
+    width: 100%;
+    margin-top: 2vw;        /* Un pequeño margen superior para separarlo del contenido superior */
+}
+
+/* Carrusel - Contenedor interno */
+.carousel-inner {
+    background-color: #feb47b;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;    /* Asegura que los elementos del carrusel se alineen correctamente */
+}
+
+/* Botones de control del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #fb9529;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjetas de productos */
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover en tarjetas */
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card .card-body {
+    padding: 15px;
+}
+
+.product-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-card .card-text {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Estilo para el estado del producto */
+.product-card .status {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Botones */
+.product-card .btn {
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    margin-bottom: 10px; /* Separación entre los botones */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón Aprobado */
+.product-card .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.product-card .btn-secondary:hover {
+    background-color: #5a6268;
     transform: translateY(-2px);
 }
 
-/* Efecto al hacer clic */
-button.btn-primary:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(255, 126, 95, 0.6);
+/* Botón Eliminar */
+.product-card .btn-danger {
+    background-color: #dc3545;
+    color: white;
 }
-/* Estilo para los botones del slider */
-.slider-btn {
-    background-color: #fb9529; 
+
+.product-card .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Opcional: Asegurar que los botones tengan un estilo consistente */
+.product-card button {
+    font-size: 1rem;
+    padding: 8px 20px;
+    width: 45%;  /* Los botones ocupan el 45% del ancho de la tarjeta */
+}
+
+
+/* Botones dentro de las tarjetas */
+button.btn-warning,
+button.btn-success,
+button.btn-danger {
+    background-color: #fb9529;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 30px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#prev {
-    left: 20px; /* Ubicación a la izquierda */
+/* Efectos hover para botones */
+button.btn-warning:hover,
+button.btn-success:hover,
+button.btn-danger:hover {
+    background-color: #ff9a8b;
+    transform: translateY(-2px);
 }
 
-#next {
-    right: 20px; /* Ubicación a la derecha */
-}
-
-/* Efecto hover para los botones del slider */
-.slider-btn:hover {
-    background-color: #ff9a8b; /* Cambio de color al pasar el ratón */
-    transform: scale(1.1); /* Aumentar tamaño del botón */
-}
-
-/* Efecto de clic para los botones del slider */
-.slider-btn:active {
-    transform: scale(1); /* Vuelve al tamaño original cuando se hace clic */
-}
