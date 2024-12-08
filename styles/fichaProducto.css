@@ -184,11 +184,11 @@ footer {
 }
 
 .product-details .btn-agregar{
-    background-color: #ffb03a;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
     color: white;
     padding: 14px 30px;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -245,7 +245,7 @@ footer {
 
 /* Botón ver producto*/
 .btn-view-product {
-    background-color: #ffb03a; 
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
     color: white;
     padding: 14px 30px;
     border: none;

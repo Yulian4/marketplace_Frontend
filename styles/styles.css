@@ -228,7 +228,7 @@ footer {
 }
 
 .btn-mirarMas{
-    background-color: #ffb03a; 
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
     color: white;
     padding: 14px 30px;
     border: none;
