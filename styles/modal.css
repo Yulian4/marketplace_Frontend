@@ -1,13 +1,12 @@
-/* Estilos para el Modal del Carrito */
 .modal-content {
     border-radius: 1vw;
-    background:white; /* Gradiente para el fondo del modal */
-    color: rgb(81, 49, 26); /* Color de texto principal */
+    background:white; 
+    color: rgb(81, 49, 26); 
 }
 
 .modal-header {
     background-color:#feb47b; ; /* Fondo claro para el encabezado */
-    color: rgb(81, 49, 26); 
+    color: white; 
     border-bottom: 2px solid #feb47b; 
     font-size: 1.2vw;
     padding: 15px 20px;
@@ -82,7 +81,7 @@
     color: black;
 } 
 .btn-primary {
-    background:linear-gradient(to right, #ff7e5f, #feb47b);
+    background: #ff7e5f;
     color: white;
     border: none;
     transition: background-color 0.3s ease;

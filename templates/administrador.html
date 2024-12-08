@@ -13,37 +13,35 @@
 
     <!-- Botón de cerrar sesión -->
     <button class="btn btn-secondary" onclick="logout()">Cerrar sesión</button>
-
-    <!-- Sección del Administrador -->
-    <div class="container" id="admin-section">
-        <img src="../assets/images/incognito.jpg" alt="Administrador" class="user-image">
-        <h2>Administrador: <span id="admin-name"></span></h2>
-        <div class="container" id="pending-products-container">
-            <h3>Productos Pendientes</h3>
-            <div class="container" id="carousel-container">
-                <div id="carouselExamplePending" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
-                    <div class="carousel-inner" id="admin-products">
-                        <!-- Aquí se agregarán dinámicamente las tarjetas de productos por aprobar -->
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplePending" data-bs-slide="prev">
-                        <span aria-hidden="true">👈</span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplePending" data-bs-slide="next">
-                        <span aria-hidden="true">👉</span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
+   <!-- Sección del Administrador -->
+   <div class="container" id="admin-section">
+    <img src="../assets/images/incognito.jpg" alt="Administrador" class="user-image">
+    <h2>Administrador: <span id="admin-name"></span></h2>
+   
+    <div class="container" id="pending-products-container">
+        <h3>Productos Pendientes</h3>
+        <div class="container" id="carousel-container">
+            <div id="carouselExamplePending" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner" id="admin-products">
+                    <!-- Los productos pendientes se agregarán dinámicamente aquí -->
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplePending" data-bs-slide="prev">
+                    <span aria-hidden="true">👈</span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplePending" data-bs-slide="next">
+                    <span aria-hidden="true">👉</span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
             </div>
         </div>
     </div>
-   
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../scripts/constants.js"></script>
-    <script src="../scripts/admincarru.js"></script>
-    <script src="../scripts/producto.js"></script>
-    <script src="../scripts/agregarProductos.js"></script> 
+<script src="../scripts/constants.js"></script>
+<script src="../scripts/producto.js"></script>
+<script  src="../scripts/admincarru.js"></script>
 </body>
 </html>
+
