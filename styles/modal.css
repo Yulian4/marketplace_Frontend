@@ -59,6 +59,11 @@
     background-color: #ff7e5f; 
     color: #503a2c;
 }
+.modal-footer{
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
 .btn-danger{
     background-color:#ff7e5f;
     color: white;
