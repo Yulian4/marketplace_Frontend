@@ -70,12 +70,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 cartItemDiv.classList.add('cart-item');
 
                 // Verificación de imagen
-                const imageUrl = item.image ? `../assets/images/products/${item.image}` : '../assets/images/1684885584_1769090_500x.jpg';
+                const imageUrl = item.image ? `./assets/images/logo.png` : '../assets/images/logo.png';
 
                 cartItemDiv.innerHTML = `
                     <div class="d-flex justify-content-between align-items-center">
                         <img src="${imageUrl}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;" class="cart-item-img">
-                        <div>${item.name} - $${item.price} x ${item.quantity}</div>
+                        <div>${item.name}----$${item.price} x ${item.quantity}</div>
                         <button class="btn btn-warning" onclick="updateQuantity('${item.id}', 1)">+</button>
                         <span> x ${item.quantity}</span>
                         <button class="btn btn-danger" onclick="updateQuantity('${item.id}', -1)">-</button>

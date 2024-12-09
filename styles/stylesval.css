@@ -346,3 +346,21 @@ button {
     border-radius: 0.5vw;
     cursor: pointer;
 }
+
+.regresar{
+    cursor: pointer;
+    color: #ff7e5f;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.2vw;
+    margin: 0 0 0 7vw;
+    border: 2px solid #ff7e5f; /* Borde visible */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 0.5vw 1.5vw; /* Espaciado interno para parecer botón */
+}
+.regresar:hover {
+    background-color: white; /* Cambia el fondo al pasar el mouse */
+    color: salmon; /* Cambia el color del texto */
+    border-color: salmon; /* Mantiene el color del borde */
+}

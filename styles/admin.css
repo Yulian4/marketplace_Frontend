@@ -1,0 +1,95 @@
+.carousel-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 1rem;
+    margin: 0;
+    background-color: rgba(255, 245, 233, 0.488);
+    border-radius: 1.5vw;
+    padding: 1vw 3vw;
+    text-align: center;
+    width: 80vw;
+    margin: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100vw;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.card .btn {
+    border: 2px solid #ff7e5f;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+
+.card .btn-success:hover {
+    background-color: #ff7e5f;
+    color: white;
+    border-color: #ff7e5f;
+}
+
+.card .btn-danger:hover {
+    background-color: #feb47b;
+    color: white;
+    border-color: #feb47b;
+}
+
+.card-body .btn:last-child {
+    margin-right: 0;
+}
+
+.carousel-inner .btn {
+    background-color: white;
+    color: black;
+}
+
+.botones .btn { 
+    width: 18vw;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    position: absolute;
+    top: 15vw;
+    right: 10px;
+    text-align: center;
+    background-color: #ebdfd7c4;
+    border-radius: 2.5vw;
+    padding: 0.5vw;
+    color: white;
+}

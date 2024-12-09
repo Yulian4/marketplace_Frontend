@@ -14,43 +14,26 @@
 <body>
 
     <header></header>
-
-   
-        <button class="btn btn-secondary logout-btn me-2" onclick="logout()">Cerrar sesión</button>
+    <div class="botones">
         <button class="btn btn-primary" onclick="window.location.href='./agregarProductos.html'">Agregar Producto</button>
+        <button class="btn btn-secondary logout-btn me-2" onclick="logout()">Cerrar sesión</button>
 
+    </div>
+   
     <!-- Sección de usuario -->
     <div class="user-info text-center mb-4">
-        <img src="../assets/images/incognito.jpg" alt="Usuario" class="user-image rounded-circle mb-3" style="width: 150px; height: 150px;">
+        <div class="imagennombre">
+        <img src="../assets/images/incognito.jpg" alt="Usuario" class="user-image " style="width: 12vw; height: 12vw;">
         <h2>Bienvenido/a, <span id="user-name"></span></h2>
-    
+    </div>
 
     <div class="container">
         <h3>Mis Productos</h3>
 
-        
 
-        <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner" id="carousel-inner">
-                <!-- Aquí se agregarán los productos del usuario -->
-                <div class="carousel-item active" id="user-products">
-                    <!-- Los productos del usuario se agregarán dinámicamente aquí -->
-                </div>
-                <!-- Aquí se agregarán los productos aprobados -->
-                <div class="carousel-item" id="approved-products">
-                    <!-- Los productos aprobados se agregarán dinámicamente aquí -->
-                </div>
-            </div>
-            <!-- Controles del carrusel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span aria-hidden="true">👈</span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span aria-hidden="true">👉</span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            
+
+        <div class="row" id="user-products">
+            <!-- Los productos del usuario se agregarán dinámicamente aquí -->
         </div>
     </div>
 
@@ -61,7 +44,7 @@
     <script src="../scripts/constants.js"></script>
     <script src="../scripts/producto.js"></script>
     <script src="../scripts/carrusel.js"></script>
-    <script src="../scripts/agregarProductos.js"></script>
+
 
 </body>
 

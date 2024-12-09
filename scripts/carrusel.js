@@ -1,7 +1,10 @@
-const API_URL = "http://localhost:3000/api/products/approved-products";
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-async function fetchApprovedProducts() {
+if (!currentUser || !currentUser.token) {
+    console.error("No se encontró un usuario válido o el token está ausente.");
+    return; 
+}
+async function fetchApprovedProducts(currentUser) {
     try {
         console.log("Cargando productos aprobados...");
         const response = await fetch(API_URL, {
