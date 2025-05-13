@@ -129,7 +129,7 @@ async function addProduct() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${currentUser.token}` // Agregar el token para la autorización
                 },
-                body: JSON.stringify({ name, description, price, user: currentUser.username }) // Asegúrate de que se envíen estos campos
+                body: JSON.stringify({ name, description, price, user: currentUser.username }) 
             });
 
             const data = await response.json();
@@ -170,9 +170,9 @@ async function approveProduct(productId) {
         const data = await response.json();
         if (response.ok) {
             alert('Producto aprobado');
-            renderAdminProducts();  // Recarga la lista de productos pendientes
+            renderAdminProducts();  
         } else {
-            alert(data.message);  // Muestra el mensaje de error
+            alert(data.message);  
         }
     } catch (error) {
         console.error('Error al aprobar producto', error);
