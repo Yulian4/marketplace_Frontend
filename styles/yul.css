@@ -1,0 +1,236 @@
+.bodyri {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    
+   
+}
+.bodyri:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: url('../assets/images/backgroundLogin2.png') no-repeat center left;
+    background-size: cover; 
+    z-index: -1;
+    transform: translateX(-5vw);  
+}
+#register-section, #login-section {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 2vw;
+    border-radius: 1vw;
+    box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    max-width: 40vw; 
+    min-width: 30vw; 
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 15vw;
+}
+
+h2 {
+    text-align: center;
+    color: #ff7e5f;
+    margin-bottom: 2vw;
+}
+
+input {
+    border: 0.2vw solid #ff7e5f; 
+    border-radius: 0.5vw;
+    margin-bottom: 1vw;
+    padding: 0.75vw;
+    width: calc(100% - 1.5vw);
+}
+
+input:focus {
+    border-color: #feb47b; 
+    box-shadow: 0 0 0.5vw rgba(254, 180, 123, 0.5);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
+    border: none;
+    width: 100%;
+    padding: 0.75vw;
+    color: white;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f); 
+}
+
+p {
+    text-align: center;
+    margin-top: 2vw;
+    white-space: nowrap; 
+}
+
+p a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+a {
+    display: inline-block; 
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.regresar {
+    width: 18vw;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    background-color: #ebdfd7c4;
+    border-radius: 2.5vw;
+    padding: 0.5vw;
+}
+.regresar a {
+    color: white;
+    font-size: 1vw
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+.regresar2 {
+    width: 18vw;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    position: absolute;
+    top: 43vw;
+    right: 10px;
+    text-align: center;
+    background-color: #ebdfd7c4;
+    border-radius: 2.5vw;
+    padding: 0.5vw;
+}
+.regresar2 a {
+    font-size: 1vw;
+    color: white;
+}
+
+
+
+/*estlitos para el formulario*/
+
+.custom-card {
+    border-radius: px; 
+    width: 100%;
+    max-width: 1000px; 
+    height: 100%;
+    margin: 1vw auto; 
+    box-shadow: none; 
+    
+}
+
+.card-title {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    /*margin-bottom: 5px;*/
+    padding: 0;
+    margin: 4vw;
+}
+
+
+.image-upload-wrapper {
+    width: 50%;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.image-upload-label:hover {
+    border-radius: 20px;
+    background-color: #ccd9e6;
+}
+
+.image-upload-icon {
+    width: 25vw;
+    max-width: 150vw; 
+    height: auto;
+    border-radius: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.formulario{
+    display: flex;
+   
+}
+.img-formulario{
+   width: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.info-formulario{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap; 
+}
+.input-f{
+    width: 100%;
+}
+.form-control {
+    
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #ffffff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+.btn-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.regresar3 a{
+    color: #ffffff;
+}

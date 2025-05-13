@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pago</title>
+    <link rel="stylesheet" href="../../styles/stylesval.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <header class="fondoPagos"></header>
+    <a class="regresar" href="../pagos/metodoPago.html">&larr; Regresar</a>
+    <div class="barraProgreso">
+        <div class="inactivo">Datos</div>
+        <div class="inactivo">Entrega</div>
+        <div class="activo">Pago</div>
+        <div class="inactivo">Orden Envío</div>
+      </div>
+      <h1 class="titlemetodopago">Datos de la Cuenta</h1>
+    <div class="container">
+      
+
+        <!-- Formulario para ingresar número de cuenta y contraseña -->
+        <div class="formularioPagos">
+        <form id="formpago">
+            <div class="form-date">
+                <label for="account-number">Número de cuenta</label><br>
+                <input class="inputForm" type="text" id="account-number" name="account-number" required>
+            </div><br>
+            <div class="form-date">
+                <label for="password">Contraseña</label><br>
+                <input class="inputForm" type="password" id="password" name="password" required>
+            </div>
+            <button class="enviarForm" type="submit">Finalizar Compra</button>
+        </form>
+    </div>
+    </div>
+    <script src="../../scripts/datosCuenta.js"></script>
+    
+</body>
+
+</html>

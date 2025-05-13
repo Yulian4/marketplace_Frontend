@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="../../styles/stylesval.css">
+</head>
+<body>
+    <header class="fondoPagos"></header>
+    <a class="regresar" href="../pagos/domicilio.html">&larr; Regresar</a>
+    <div class="barraProgreso">
+        <div class="inactivo">Datos</div>
+        <div class="inactivo">Entrega</div>
+        <div class="activo">Pago</div>
+        <div class="inactivo">Orden Envío</div>
+      </div>
+      <h1 class="titlemetodopago">Elige tu metodo de pago</h1>
+
+    <div class="container">
+        <div class="metodo-pago">
+            <button class="boton" id="pse-button" type="button">
+                <img class="logo" src="../../assets/images/logo-pse.jpg" alt="Pago PSE" >
+            </button>
+            <button  class="boton" id="pse-button" type="button">
+                <img class="logo"src="../../assets/images/logo-tarjeta.png" alt="Pago tarjeta">
+            </button>
+        </div>
+    
+    <div class="cart-summary">
+        <h3>Resumen de Compra</h3>
+        <div id="cart-summary"></div> 
+        <div id="total-container"></div> 
+        <button id="modificarCarrito">Modificar carrito</button>
+    </div>
+</div>
+    <script src="../../scripts/metodoPago.js"></script>
+    
+</body>
+</html>

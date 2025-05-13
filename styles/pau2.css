@@ -1,0 +1,97 @@
+/* Estilos generales */
+body {
+    background-color: white;
+    color: rgb(81, 49, 26);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo de la página */
+header {
+    background-image: url(../assets/images/fondoPagos.png);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Sección del usuario o administrador */
+.user-info {
+    background-color: rgba(251, 149, 41, 0.1);
+    border-radius: 1.5vw;
+    padding: 3vw;
+    text-align: center;
+    width: 100%;
+    max-width: 90vw; 
+    margin-top: 30vh;        
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen del usuario */
+.user-image {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover;
+    border: 0.3vw solid #fb9529;
+    margin: 0 2vw;
+    margin-top: 5vh;
+}
+
+/* Estilo para el texto de bienvenida */
+.user-info h2 {
+    font-size: 1.8rem;
+    color: rgb(81, 49, 26); /* Color oscuro para el texto del encabezado */
+    margin-top: 1.5vw;
+}
+
+/* Botones en la parte superior */
+button.btn-secondary, button.btn-primary {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 2vw;
+    padding: 1vw 2vw;
+    text-align: center;
+    margin-top: 6vw;
+}
+button.btn-secondary {
+    width: 12%;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+}
+
+button.btn-primary {
+    width: 15%;
+    position: absolute;
+    top: 10vh;
+    left: 40vw;
+}
+
+button.btn-secondary:hover, button.btn-primary:hover {
+    background-color: #feb47b;
+}
+
+/* Contenedor de productos pendientes */
+#pending-products-container {
+    margin-top: 4vh;
+    text-align: center;
+}
+
+/* Estilos del carrusel */
+#carousel-container {
+    width: 80%; 
+    margin: 0 auto; /* Centra el carrusel */
+}
+

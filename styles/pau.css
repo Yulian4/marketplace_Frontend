@@ -1,0 +1,155 @@
+/* Estilos generales */
+body {
+    background-color: white;
+    color: rgb(81, 49, 26);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+/* Fondo de la página */
+/* header {
+    background-image: url(../assets/images/fondoPagos.png);
+    margin: 0;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20vw;
+} */
+
+/* Estilo para el contenedor de los botones */
+.botones {
+    display: flex;
+    flex-direction: column; /* Organiza los botones en columna */
+    justify-content: flex-end; /* Alinea los botones a la izquierda */
+    align-items: flex-end; /* Alinea los botones al principio del contenedor */
+    padding: 1vw; /* Espaciado alrededor de los botones */
+    top: 1vw;
+    right: 2vw;
+    width: 18vw;
+    position: absolute;
+    z-index: 10; /* Asegura que los botones se muestren por encima de otros elementos */
+}
+
+/* Botones en la parte superior */
+button.btn-secondary, button.btn-primary {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 2.5vw;
+    padding: 0.5vw 2vw;
+    text-align: center;
+    margin-bottom: 1vw; /* Espacio entre los botones */
+}
+
+button.btn-secondary:hover, button.btn-primary:hover {
+    background-color: #feb47b;
+}
+
+/* Cada tarjeta de producto */
+.carousel-item .card {
+    box-shadow: 0 4px 8px rgb(81, 49, 26);
+    margin-bottom: 1rem;
+}
+
+/* Asegura que las imágenes dentro de las tarjetas se ajusten */
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Si no hay productos, mostrar mensaje */
+#user-products p, #approved-products p {
+    font-size: 1.2rem;
+    color: #feb47b;
+    text-align: left;
+}
+#user-products li{
+    text-align: left;
+}
+/* Estilo de los botones en las tarjetas */
+.card .btn {
+    width: auto;
+    margin-top: 1rem;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+
+
+/* Cambios de Valentina en usuario.html */
+.user-info {
+    background-color: rgba(255, 245, 233, 0.488);
+    border-radius: 1.5vw;
+    padding: 1vw 3vw;
+    text-align: center;
+    width: 60%;
+    margin: 0vw 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen del usuario */
+.user-image {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover;
+    border: 0.3vw solid #fb9529;
+    margin: 0 2vw;
+    margin-top: 5vh;
+}
+
+/* Estilo para el texto de bienvenida */
+.user-info h2 {
+    font-size: 1.8rem;
+    color: rgb(103, 64, 36); /* Color oscuro para el texto del encabezado */
+    margin-top: 1.5vw;
+}
+
+/* Contenedor de productos pendientes */
+#pending-products-container {
+    margin-top: 4vh;
+    text-align: center;
+}
+
+
+#carousel-container {
+    width: 80%; 
+    margin: 0 auto; /* Centra el carrusel */
+}
+
+.imagennombre{
+    display: flex;
+    align-items: center;
+    margin: 0 0 2vw 0;
+}
+.imagennombre img {
+    padding: 0;
+    justify-content: right;
+}
+
+.carousel-inner{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0vw;
+    margin: 0;
+}
+.carousel-inner .btn{
+background-color: white;
+color: black;
+}
+.car .carousel-inner img{
+width: 50%;
+}
